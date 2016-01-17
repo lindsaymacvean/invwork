@@ -5,15 +5,15 @@ module.exports = function(grunt) {
         assemble: {
         	options: {
         		flatten: true,
-        		layoutdir: "../test-templates/author_templates",
-        		partials: ['../test-templates/general_includes/**/*.hbs']
+        		layoutdir: "test-templates/meta_test_templates",
+        		partials: ['test-templates/general_includes/**/*.hbs', 'test-templates/author/**/*.hbs', 'test-templates/content/**/*.hbs'] 
         	},
         	author_crud: {
                 options:  {
                     layout: "author_crud.hbs"
                 },
                 dest: '../compiled-tests/content/author',
-                src: ['../test-templates/content_templates/author/*.hbs']
+                src: ['test-templates/content/content_types/*.hbs']
             }
         },
         clean: {
