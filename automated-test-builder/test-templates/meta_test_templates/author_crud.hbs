@@ -1,3 +1,6 @@
+---
+url: lindsay
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -18,18 +21,24 @@
 		{{> createAuthor }}
 		{{> logout }}
 		{{> loginAuthor }}
-
+		{{!-- 
+			The body iterates over the individual
+			content types, each one has 
+			variables (title, url, type), and 
+			block steps for each of C R U D for 
+			the content type.
+		--}}
 		{{> body }}
-
+		{{#block "Edit Node"}}{{/block}}
+		{{#block "Verify Node" }}{{/block}}
+		{{#block "Update Node" }}{{/block}}
+		{{#block "Verify Updated Node"}}{{/block}}
 		{{> logout }}
 		{{> loginWebmaster }}
-
-		//verify node?
-
-		{{> deleteNode }}
-		
-			
+		{{#block "Verify Updated Node"}}{{/block}}
+		{{#block "Delete Node"}}{{/block}}
 		{{> deleteUser }}
+		{{> logout }}
 </tbody></table>
 </body>
 </html>

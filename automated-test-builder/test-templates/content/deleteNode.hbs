@@ -1,5 +1,15 @@
 <!-- delete Node -->
 <tr>
+	<td>open</td>
+	<td>/{{type}}/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>id=edit-delete</td>
 	<td></td>
@@ -11,6 +21,6 @@
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('Job Role ${titleUpdate} has been deleted.')</td>
+	<td>css=div.messages.status:contains('${titleUpdate} has been deleted.')</td>
 	<td></td>
 </tr>
