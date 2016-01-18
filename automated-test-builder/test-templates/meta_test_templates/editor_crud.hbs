@@ -1,0 +1,57 @@
+---
+url: lindsay
+user: editor
+Editor: true
+userCantDelete: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://{{ url }}.invotra.io1test.com" />
+<title>{{ title }}</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">{{ title }}</td></tr>
+</thead><tbody>
+<!--Author CRUD test -->
+		{{> variables }}
+		{{> logout }}
+		{{> login_webmaster }}
+		{{> create_user }}
+		{{> logout }}
+		{{> login_user }}
+		{{!-- 
+			The body iterates over the individual
+			content types, each one has 
+			variables (title, url, type), and 
+			block steps for each of C R U D for 
+			the content type.
+		--}}
+		{{> body }}
+		{{#block "Edit Node"}}{{/block}}
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${title} has been created.')</td>
+			<td></td>
+		</tr>
+		{{#block "Verify Node" }}{{/block}}
+		{{#block "Update Node" }}{{/block}}
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${titleUpdate} has been updated.')</td>
+			<td></td>
+		</tr>
+		{{#block "Verify Updated Node"}}{{/block}}
+		{{> logout }}
+		{{> login_webmaster }}
+		{{#block "Verify Updated Node"}}{{/block}}
+		{{#block "Delete Node"}}{{/block}}
+		{{> delete_user }}
+		{{> logout }}
+</tbody></table>
+</body>
+</html>

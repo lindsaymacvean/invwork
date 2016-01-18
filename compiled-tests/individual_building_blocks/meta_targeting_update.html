@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://.invotra.io1test.com" />
+<title></title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3"></td></tr>
+</thead><tbody>
+		<!--Change to 'Targeting' Content Options-->
+<tr>
+	<td>click</td>
+	<td>link=Targeting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${orgUnit}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-locations-und-0-target-id-select-1</td>
+	<td>${location}*</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=li.ms-elem-selected</td>
+	<td>${roleGrade}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#ms-edit-field-region-und &gt; div.ms-selection &gt; ul.ms-list &gt; li.ms-elem-selected</td>
+	<td>${parentRegion}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=li.ms-elem-selected[ms-value='668']</td>
+	<td>${childRegion}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${orgUnitUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-locations-und-0-target-id-select-1</td>
+	<td>${locationUpdate}*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.ms-elem-selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.ms-elem-selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.ms-elem-selected</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
