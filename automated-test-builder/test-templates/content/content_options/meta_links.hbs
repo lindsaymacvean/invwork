@@ -4,14 +4,15 @@
 	<td>link=Links</td>
 	<td></td>
 </tr>
+<!-- using name= here because the links input has a different id on the gallery page -->
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
 	<td>${relatedExternalLinksTitle}</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
 	<td>${relatedExternalLinksURL}</td>
 </tr>
 <!--Special sequence to select AutoSuggest-->

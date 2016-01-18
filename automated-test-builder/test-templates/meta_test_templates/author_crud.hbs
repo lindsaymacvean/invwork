@@ -1,5 +1,8 @@
 ---
 url: lindsay
+user: author
+Author: true
+userCantDelete: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -17,10 +20,10 @@ url: lindsay
 <!--Author CRUD test -->
 		{{> variables }}
 		{{> logout }}
-		{{> loginWebmaster }}
-		{{> createAuthor }}
+		{{> login_webmaster }}
+		{{> create_user }}
 		{{> logout }}
-		{{> loginAuthor }}
+		{{> login_user }}
 		{{!-- 
 			The body iterates over the individual
 			content types, each one has 
@@ -30,14 +33,24 @@ url: lindsay
 		--}}
 		{{> body }}
 		{{#block "Edit Node"}}{{/block}}
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${title} has been created.')</td>
+			<td></td>
+		</tr>
 		{{#block "Verify Node" }}{{/block}}
 		{{#block "Update Node" }}{{/block}}
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${titleUpdate} has been updated.')</td>
+			<td></td>
+		</tr>
 		{{#block "Verify Updated Node"}}{{/block}}
 		{{> logout }}
-		{{> loginWebmaster }}
+		{{> login_webmaster }}
 		{{#block "Verify Updated Node"}}{{/block}}
 		{{#block "Delete Node"}}{{/block}}
-		{{> deleteUser }}
+		{{> delete_user }}
 		{{> logout }}
 </tbody></table>
 </body>

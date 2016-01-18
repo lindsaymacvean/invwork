@@ -1,41 +1,21 @@
 ---
-title: External Resource CRUD
-type: External-Resource
+title: Agreement CRUD
+type: Agreement
 ---
 
 {{#content "Edit Node"}}
 <!--Add node-->
 <tr>
 	<td>open</td>
-	<td>/node/add/{{type}}</td>
+	<td>/node/add/custom/44</td>
 	<td></td>
 </tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-external-resource-und-0-title</td>
-	<td>${relatedExternalLinksTitle}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-external-resource-und-0-url</td>
-	<td>${relatedExternalLinksURL}</td>
-</tr>
-{{> setContentOptions }}
+{{> enter_title_body}}
+{{> set_content_options}}
+{{#if userCantDelete}}
+	{{> verify_author_delete}}
+{{/if}}
+{{> publish_node}}
 {{/content}}
 
 
@@ -62,7 +42,11 @@ type: External-Resource
 	<td>link=${security}</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${relatedExternalLinksTitle}</td>
+	<td></td>
+</tr>
 {{/content}}
 
 {{#content "Update Node"}}
@@ -78,33 +62,20 @@ type: External-Resource
 	<td>${title}</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
 	<td>verifyValue</td>
 	<td>id=edit-body-und-0-value</td>
 	<td>${body}</td>
 </tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${bodyUpdate}</td>
-</tr>
-{{> updateContentOptions }}
+{{> enter_title_body_update}}
+{{> update_content_options}}
+{{> publish_node}}
 {{/content}}
 
 {{#content "Verify Updated Node"}}
 <!--Verify node has been updated-->
 <tr>
 	<td>open</td>
-	<td>/{{type}}/${titleUpdate}</td>
+	<td>/agreement/${titleUpdate}</td>
 	<td></td>
 </tr>
 <!-- we do not verify the message here because this step is reused in multiple places. -->
@@ -131,7 +102,7 @@ type: External-Resource
 {{/content}}
 
 {{#content "Delete Node"}}
-{{> deleteNode}}
+{{> delete_node}}
 {{/content}}
 
 

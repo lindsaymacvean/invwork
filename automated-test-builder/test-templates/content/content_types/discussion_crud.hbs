@@ -1,6 +1,7 @@
 ---
 title: Discussion CRUD
 type: Discussion
+typeURL: discussion
 ---
 
 {{#content "Edit Node"}}
@@ -10,49 +11,17 @@ type: Discussion
 	<td>/node/add/post</td>
 	<td></td>
 </tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
-</tr>
-<!-- currently ignoring discussion topic until further clarification on this taxonomy -->
-{{> setContentOptions }}
+{{> enter_title_body}}
+{{> set_content_options}}
+{{#if userCantDelete}}
+	{{> verify_cant_delete}}
+{{/if}}
+{{> publish_node}}
 {{/content}}
 
-
-
 {{#content "Verify Node"}}
-<!--Verify node has been created-->
-<tr>
-	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('{{type}} ${title} has been created.')</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p</td>
-	<td>${body}</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${security}</td>
-	<td></td>
-</tr>
+<!--Verify node-->
+{{> verify_view_title_body}}
 <tr>
 	<td>verifyElementPresent</td>
 	<td>link=${relatedExternalLinksTitle}</td>
@@ -67,57 +36,20 @@ type: Discussion
 	<td>link=Edit</td>
 	<td></td>
 </tr>
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${bodyUpdate}</td>
-</tr>
-{{> updateContentOptions }}
+{{> verify_edit_title_body_update}}
+{{> enter_title_body_update}}
+{{> update_content_options}}
+{{> publish_node}}
 {{/content}}
 
 {{#content "Verify Updated Node"}}
 <!--Verify node has been updated-->
 <tr>
 	<td>open</td>
-	<td>/{{type}}/${titleUpdate}</td>
+	<td>/{{typeURL}}/${titleUpdate}</td>
 	<td></td>
 </tr>
-<!-- we do not verify the message here because this step is reused in multiple places. -->
-<tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p</td>
-	<td>${bodyUpdate}</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${securityUpdate}</td>
-	<td></td>
-</tr>
+{{> verify_view_title_body_update}}
 <tr>
 	<td>verifyElementPresent</td>
 	<td>link=${relatedExternalLinksTitleUpdate}</td>
@@ -126,10 +58,5 @@ type: Discussion
 {{/content}}
 
 {{#content "Delete Node"}}
-{{> deleteNode}}
+{{> delete_node}}
 {{/content}}
-
-
-
-
-

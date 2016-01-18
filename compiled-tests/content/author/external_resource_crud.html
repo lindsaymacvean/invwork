@@ -5,12 +5,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://lindsay.invotra.io1test.com" />
-<title>External Resource CRUD</title>
+<title>Agreement CRUD</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">External Resource CRUD</td></tr>
+<tr><td rowspan="1" colspan="3">Agreement CRUD</td></tr>
 </thead><tbody>
 <!--Author CRUD test -->
 		
@@ -22,7 +22,7 @@
 		<tr>
 			<td>store</td>
 			<td>javascript{'author'}</td>
-			<td>author</td>
+			<td>user</td>
 		</tr>
 		<tr>
 			<td>store</td>
@@ -225,7 +225,7 @@
 			<td>clickAndWait</td>
 			<td>id=edit-submit</td>
 			<td></td>
-		</tr>		<!--Create User ${author}-->
+		</tr>		<!--Create User-->
 		<tr>
 			<td>open</td>
 			<td>/admin/people/create</td>
@@ -234,7 +234,7 @@
 		<tr>
 			<td>type</td>
 			<td>id=edit-name</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<tr>
 			<td>type</td>
@@ -244,12 +244,12 @@
 		<tr>
 			<td>type</td>
 			<td>id=edit-pass-pass1</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<tr>
 			<td>type</td>
 			<td>id=edit-pass-pass2</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<!--Verify Status Active-->
 		<tr>
@@ -317,8 +317,7 @@
 			<td>assertValue</td>
 			<td>id=edit-roles-change-3</td>
 			<td>off</td>
-		</tr>
-		<tr>
+		</tr><tr>
 			<td>click</td>
 			<td>id=edit-roles-change-5</td>
 			<td></td>
@@ -328,6 +327,8 @@
 			<td>id=edit-roles-change-5</td>
 			<td>on</td>
 		</tr>
+		
+		
 		<tr>
 			<td>clickAndWait</td>
 			<td>id=edit-submit</td>
@@ -335,7 +336,7 @@
 		</tr>
 		<tr>
 			<td>verifyElementPresent</td>
-			<td>css=div.messages.status:contains('Created a new user account for ${author}. No e-mail has been sent.')</td>
+			<td>css=div.messages.status:contains('Created a new user account for ${user}. No e-mail has been sent.')</td>
 			<td></td>
 		</tr>
 		<!--Add author to site section-->
@@ -352,7 +353,7 @@
 		<tr>
 			<td>type</td>
 			<td>id=edit-name</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<tr>
 			<td>clickAndWait</td>
@@ -361,7 +362,7 @@
 		</tr>
 		<tr>
 			<td>verifyElementPresent</td>
-			<td>css=div.messages.status:contains('${author} has been added to the group Home.')</td>
+			<td>css=div.messages.status:contains('${user} has been added to the group Home.')</td>
 			<td></td>
 		</tr>		<!-- Logout -->
 		<tr>
@@ -374,16 +375,16 @@
 			<td>open</td>
 			<td>/user</td>
 			<td></td>
-		</tr>		<!--Log in as author-->
+		</tr>		<!--Log in as user-->
 		<tr>
 			<td>type</td>
 			<td>id=edit-name</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<tr>
 			<td>type</td>
 			<td>id=edit-pass</td>
-			<td>${author}</td>
+			<td>${user}</td>
 		</tr>
 		<tr>
 			<td>clickAndWait</td>
@@ -406,7 +407,7 @@
 		<!--Add node-->
 <tr>
 	<td>open</td>
-	<td>/node/add/External-Resource</td>
+	<td>/node/add/custom/44</td>
 	<td></td>
 </tr>
 <tr>
@@ -423,17 +424,7 @@
 	<td>type</td>
 	<td>id=edit-body-und-0-value</td>
 	<td>${body}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-external-resource-und-0-title</td>
-	<td>${relatedExternalLinksTitle}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-external-resource-und-0-url</td>
-	<td>${relatedExternalLinksURL}</td>
-</tr>
+</tr><!--'Organisational' Content Options-->
 <!--'Organisational' Content Options-->
 <tr>
 	<td>select</td>
@@ -496,21 +487,21 @@
 	<td>0</td>
 	<td></td>
 </tr>
-<!--Ignoring Group dropdown as unnecessarily complex-->
-<!--Change to 'Links' Content Options-->
+<!--Ignoring Group dropdown as unnecessarily complex--><!--Change to 'Links' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Links</td>
 	<td></td>
 </tr>
+<!-- using name= here because the links input has a different id on the gallery page -->
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
 	<td>${relatedExternalLinksTitle}</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
 	<td>${relatedExternalLinksURL}</td>
 </tr>
 <!--Special sequence to select AutoSuggest-->
@@ -551,8 +542,7 @@
 	<td>setSpeed</td>
 	<td>0</td>
 	<td></td>
-</tr>
-<!--Change to 'Tags' Content Options-->
+</tr><!--Change to 'Tags' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Tags</td>
@@ -568,9 +558,7 @@
 	<td>select</td>
 	<td>id=edit-field-country-und</td>
 	<td>${country}</td>
-</tr>
-<!--Ignoring Meta tags as not usually changed-->
-<!--Change to 'Targeting' Content Options-->
+</tr><!--Change to 'Targeting' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Targeting</td>
@@ -600,8 +588,7 @@
 	<td>click</td>
 	<td>css=li:contains('${childRegion}')</td>
 	<td></td>
-</tr>
-<!--Change to 'Publishing options' Content Options-->
+</tr><!--Change to 'Publishing options' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Publishing options</td>
@@ -612,16 +599,25 @@
 	<td>click</td>
 	<td>id=edit-workflow-3</td>
 	<td></td>
-</tr>
-<tr>
+</tr>	<!--Verify author cannot delete-->
+	<tr>
+		<td>verifyElementNotPresent</td>
+		<td>id=edit-delete</td>
+		<td></td>
+	</tr><tr>
 	<td>clickAndWait</td>
 	<td>id=edit-submit</td>
 	<td></td>
 </tr>
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${title} has been created.')</td>
+			<td></td>
+		</tr>
 		<!--Verify node has been created-->
 <tr>
 	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('External-Resource ${title} has been created.')</td>
+	<td>css=div.messages.status:contains('Agreement ${title} has been created.')</td>
 	<td></td>
 </tr>
 <tr>
@@ -639,7 +635,11 @@
 	<td>link=${security}</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${relatedExternalLinksTitle}</td>
+	<td></td>
+</tr>
 
 		<!--Update the Node-->
 <tr>
@@ -653,14 +653,14 @@
 	<td>${title}</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
 	<td>verifyValue</td>
 	<td>id=edit-body-und-0-value</td>
 	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
 </tr>
 <tr>
 	<td>select</td>
@@ -671,8 +671,7 @@
 	<td>type</td>
 	<td>id=edit-body-und-0-value</td>
 	<td>${bodyUpdate}</td>
-</tr>
-<!-- Update Content Options-->
+</tr><!-- Update Content Options-->
 <!--'Organisational' Content Options-->
 <tr>
 	<td>verifySelectedLabel</td>
@@ -699,31 +698,31 @@
 	<td>select</td>
 	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
 	<td>${primaryCategoryUpdate}</td>
-</tr>
-<!--Change to 'Links' Content Options-->
+</tr><!--Change to 'Links' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Links</td>
 	<td></td>
 </tr>
+<!-- using xpath here because the links input has slightly different attributes on the gallery page -->
 <tr>
 	<td>verifyValue</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
 	<td>${relatedExternalLinksTitle}</td>
 </tr>
 <tr>
 	<td>verifyValue</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
 	<td>${relatedExternalLinksURL}</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
 	<td>${relatedExternalLinksTitleUpdate}</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
 	<td>${relatedExternalLinksURLUpdate}</td>
 </tr>
 <!--Special sequence to select AutoSuggest-->
@@ -758,8 +757,7 @@
 	<td>setSpeed</td>
 	<td>0</td>
 	<td></td>
-</tr>
-<!--Change to 'Tags' Content Options-->
+</tr><!--Change to 'Tags' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Tags</td>
@@ -785,9 +783,7 @@
 	<td>select</td>
 	<td>id=edit-field-country-und</td>
 	<td>${countryUpdate}</td>
-</tr>
-<!--Ignoring Meta tags as not usually changed-->
-<!--Change to 'Targeting' Content Options-->
+</tr><!--Change to 'Targeting' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Targeting</td>
@@ -842,8 +838,7 @@
 	<td>click</td>
 	<td>css=li.ms-elem-selected</td>
 	<td></td>
-</tr>
-<!--Change to 'Publishing options' Content Options-->
+</tr><!--Change to 'Publishing options' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Publishing options</td>
@@ -855,11 +850,20 @@
 	<td>verifyValue</td>
 	<td>id=edit-workflow-3</td>
 	<td>on</td>
+</tr><tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
 </tr>
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>css=div.messages.status:contains('${titleUpdate} has been updated.')</td>
+			<td></td>
+		</tr>
 		<!--Verify node has been updated-->
 <tr>
 	<td>open</td>
-	<td>/External-Resource/${titleUpdate}</td>
+	<td>/agreement/${titleUpdate}</td>
 	<td></td>
 </tr>
 <!-- we do not verify the message here because this step is reused in multiple places. -->
@@ -913,7 +917,7 @@
 		</tr>		<!--Verify node has been updated-->
 <tr>
 	<td>open</td>
-	<td>/External-Resource/${titleUpdate}</td>
+	<td>/agreement/${titleUpdate}</td>
 	<td></td>
 </tr>
 <!-- we do not verify the message here because this step is reused in multiple places. -->
@@ -941,7 +945,7 @@
 		<!-- delete Node -->
 <tr>
 	<td>open</td>
-	<td>/External-Resource/${titleUpdate}</td>
+	<td>//${titleUpdate}</td>
 	<td></td>
 </tr>
 <tr>
@@ -968,7 +972,7 @@
 		<!--Delete User-->
 		<tr>
 			<td>open</td>
-			<td>users/${author}</td>
+			<td>users/${user}</td>
 			<td></td>
 		</tr>
 		<tr>
@@ -999,7 +1003,7 @@
 		<tr>
 			<td>verifyText</td>
 			<td>css=div.messages.status</td>
-			<td>Status message ${author} has been deleted.</td>
+			<td>Status message ${user} has been deleted.</td>
 		</tr>		<!-- Logout -->
 		<tr>
 			<td>open</td>
