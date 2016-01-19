@@ -49,29 +49,5 @@
 	<td>css=div.messages.status:contains('Created a new user account for ${user}. No e-mail has been sent.')</td>
 	<td></td>
 </tr>
-<!--Add author to site section-->
-<tr>
-	<td>open</td>
-	<td>/section/home/group</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Add people</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-name</td>
-	<td>${user}</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('${user} has been added to the group Home.')</td>
-	<td></td>
-</tr>
+
+{{> add_user_site_section}}

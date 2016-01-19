@@ -33,7 +33,13 @@ function rename(dest, src) {
             },
             webmaster_crud: {
                 options: { layout: 'webmaster_crud.hbs' },
-                dest: '../compiled-tests/content/webmaster',
+                //expand: true,
+                flatten: true,
+                rename: function (dest, matchedSrcPath) {
+                    var filename = 'webmaster_' + path.basename(matchedSrcPath);
+                    return path.join(dest, path.dirname(matchedSrcPath), filename);
+                },
+                dest: '../compiled-tests/content/webmaster/',
                 src: ['test-templates/content/content_types/*.hbs']
             },
             publisher_crud: {
