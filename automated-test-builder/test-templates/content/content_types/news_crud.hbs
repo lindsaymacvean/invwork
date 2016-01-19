@@ -1,62 +1,98 @@
 ---
-title: Question CRUD
-type: Question
-typeURL: question
+title: News CRUD
+type: News
+typeURL: news
 ---
 
 {{#content "Edit Node"}}
-<!--Add node-->
-<tr>
-	<td>open</td>
-	<td>/node/add/{{type}}</td>
-	<td></td>
-</tr>
-{{> enter_title_body}}
-{{> set_content_options}}
-{{#if userCantDelete}}
-	{{> verify_cant_delete}}
-{{/if}}
-{{> publish_node}}
+	<!--Add node-->
+	<tr>
+		<td>open</td>
+		<td>/node/add/{{type}}</td>
+		<td></td>
+	</tr>
+	{{> enter_title_body}}
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-priority-und</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>id=edit-field-published-date-und-0-value-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>id=edit-field-published-date-und-0-value-timeEntry-popup-1</td>
+		<td></td>
+	</tr>
+	{{> set_content_options}}
+	{{> publish_node}}
 {{/content}}
 
 {{#content "Verify Node"}}
-<!--Verify node-->
-{{> verify_view_title_body}}
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${relatedExternalLinksTitle}</td>
-	<td></td>
-</tr>
+	<!--Verify node-->
+	{{> verify_view_title_body}}
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>link=${relatedExternalLinksTitle}</td>
+		<td></td>
+	</tr>
 {{/content}}
 
 {{#content "Update Node"}}
-<!--Update the Node-->
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Edit</td>
-	<td></td>
-</tr>
-{{> verify_edit_title_body_update}}
-{{> enter_title_body_update}}
-{{> update_content_options}}
-{{> publish_node}}
+	<!--Update the Node-->
+	<tr>
+		<td>clickAndWait</td>
+		<td>link=Edit</td>
+		<td></td>
+	</tr>
+	{{> verify_edit_title_body_update}}
+	{{> enter_title_body_update}}
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-priority-und</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-published-date-und-0-value-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	{{> pick_future_date}}
+	<tr>
+		<td>type</td>
+		<td>id=edit-field-published-date-und-0-value-timeEntry-popup-1</td>
+		<td>15:00</td>
+	</tr>
+	{{> update_content_options}}
+	{{#if userCantDelete}}
+		{{> verify_cant_delete}}
+	{{/if}}
+	{{> publish_node}}
 {{/content}}
 
 {{#content "Verify Updated Node"}}
-<!--Verify node has been updated-->
-<tr>
-	<td>open</td>
-	<td>/{{typeURL}}/${titleUpdate}</td>
-	<td></td>
-</tr>
-{{> verify_view_title_body_update}}
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${relatedExternalLinksTitleUpdate}</td>
-	<td></td>
-</tr>
+	<!--Verify node has been updated-->
+	<tr>
+		<td>open</td>
+		<td>/{{typeURL}}/${titleUpdate}</td>
+		<td></td>
+	</tr>
+	{{> verify_view_title_body_update}}
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=span.date-display-single:contains('5 February 2019')</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>link=${relatedExternalLinksTitleUpdate}</td>
+		<td>${relatedExternalLinksTitleUpdate}</td>
+	</tr>
 {{/content}}
 
 {{#content "Delete Node"}}
-{{> delete_node}}
+	{{> delete_node}}
 {{/content}}

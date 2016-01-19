@@ -5,12 +5,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://lindsay.invotra.io1test.com" />
-<title>Agreement CRUD</title>
+<title>Policy CRUD</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Agreement CRUD</td></tr>
+<tr><td rowspan="1" colspan="3">Policy CRUD</td></tr>
 </thead><tbody>
 <!--Author CRUD test -->
 		
@@ -81,7 +81,7 @@
 		</tr>
 		<tr>
 			<td>store</td>
-			<td>javascript{'History Of Golf'}</td>
+			<td>javascript{'A History of Golf'}</td>
 			<td>relatedContent</td>
 		</tr>
 		<tr>
@@ -199,7 +199,26 @@
 			<td>javascript{'user_placeholder.png'}</td>
 			<td>img</td>
 		</tr>
-		<!-- Logout -->
+		<tr>
+			<td>store</td>
+			<td>javascript{'Constituent'}</td>
+			<td>policyType</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'Distributive'}</td>
+			<td>policyTypeUpdate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'01/01/2016'}</td>
+			<td>startDate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'05/02/2019'}</td>
+			<td>endDate</td>
+		</tr>		<!-- Logout -->
 		<tr>
 			<td>open</td>
 			<td>/user/logout</td>
@@ -422,497 +441,571 @@
 
 
 
-
-
-
-
-
-
-
-
-		<!--Add node-->
-<tr>
-	<td>open</td>
-	<td>/node/add/custom/44</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
-</tr><!--'Organisational' Content Options-->
-<!--'Organisational' Content Options-->
-<tr>
-	<td>select</td>
-	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
-	<td>${section}</td>
-</tr><tr>
-	<td>select</td>
-	<td>id=edit-field-security-classification-und</td>
-	<td>${security}</td>
-</tr><!-- slow speed here for auto suggest and sub category drop downs -->
-<tr>
-	<td>setSpeed</td>
-	<td>${slowSpeed}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-owner-und-0-target-id</td>
-	<td></td>
-</tr>
-<tr>
-	<td>sendKeys</td>
-	<td>id=edit-field-owner-und-0-target-id</td>
-	<td>${wm}</td>
-</tr>
-<tr>
-	<td>keyDown</td>
-	<td>id=edit-field-owner-und-0-target-id</td>
-	<td>\40</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>css=div#autocomplete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr><tr>
-	<td>select</td>
-	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
-	<td>${primaryCategory}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
-	<td>${subCategory}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
-	<td>${subSubCategory}</td>
-</tr>
-<!--Ignoring Group dropdown as unnecessarily complex--><tr>
-	<td>setSpeed</td>
-	<td>0</td>
-	<td></td>
-</tr>
-
-
-<!--Change to 'Links' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Links</td>
-	<td></td>
-</tr>
-<!-- using name= here because the links input has a different id on the gallery page -->
-<tr>
-	<td>type</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
-	<td>${relatedExternalLinksTitle}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
-	<td>${relatedExternalLinksURL}</td>
-</tr>
-<!--Special sequence to select AutoSuggest-->
-<!--Used on this box because the output name has an additional '(42)' on it.-->
-<!--Using down arrow, then click submit button to exit the dropdown-->
-<tr>
-	<td>setSpeed</td>
-	<td>${slowSpeed}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
-	<td></td>
-</tr>
-<tr>
-	<td>sendKeys</td>
-	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
-	<td>${relatedContent}</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>css=div#autocomplete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>keyDown</td>
-	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
-	<td>\40</td>
-</tr>
-
-<tr>
-	<td>click</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>setSpeed</td>
-	<td>0</td>
-	<td></td>
-</tr><!--Change to 'Tags' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Tags</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-tags-und</td>
-	<td>${topic}</td>
-</tr><!--Ignoring Projects as unnecessarily complex-->
-<tr>
-	<td>select</td>
-	<td>id=edit-field-country-und</td>
-	<td>${country}</td>
-</tr><!--Change to 'Targeting' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Targeting</td>
-	<td></td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
-	<td>${orgUnit}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-locations-und-0-target-id-select-1</td>
-	<td>${location}*</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=#ms-edit-field-grade-und &gt; div.ms-selectable &gt; ul.ms-list &gt; li.ms-elem-selectable</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=#ms-edit-field-region-und &gt; div.ms-selectable &gt; ul.ms-list &gt; li.ms-elem-selectable</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=li:contains('${childRegion}')</td>
-	<td></td>
-</tr><!--Change to 'Publishing options' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Publishing options</td>
-	<td></td>
-</tr>
-<!--Ignoring archive, review on, actions on review date, comment options-->
-<tr>
-	<td>click</td>
-	<td>id=edit-workflow-3</td>
-	<td></td>
-</tr>	<!--Verify author cannot delete-->
+			<!--Add node-->
 	<tr>
-		<td>verifyElementNotPresent</td>
-		<td>id=edit-delete</td>
+		<td>open</td>
+		<td>/node/add/policy</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>id=edit-title</td>
+		<td>${title}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-body-und-0-format--2</td>
+		<td>Plain text</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>id=edit-body-und-0-value</td>
+		<td>${body}</td>
+	</tr>	<!--Verify end date input dissappears-->
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td>on</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td>off</td>
+	</tr>
+	<tr>
+		<td>verifyNotVisible</td>
+		<td>id=edit-field-implementation-date-und-0-value2</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyVisible</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<!--Set End Date-->
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=table.ui-datepicker-calendar</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>css=select.ui-datepicker-month</td>
+		<td>label=Feb</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>css=select.ui-datepicker-year</td>
+		<td>label=2019</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>link=5</td>
 		<td></td>
 	</tr><tr>
-	<td>clickAndWait</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td>${endDate}</td>
+	</tr>
+	<!--Set Start Date-->
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-value-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=table.ui-datepicker-calendar</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>link=1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-value-datepicker-popup-0</td>
+		<td>${startDate}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-type-und</td>
+		<td>${policyType}</td>
+	</tr>	<!--'Organisational' Content Options-->
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+		<td>${section}</td>
+	</tr>	<tr>
+		<td>setSpeed</td>
+		<td>${slowSpeed}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+		<td>${primaryCategory}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+		<td>${subCategory}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+		<td>${subSubCategory}</td>
+	</tr>
+	<!--Ignoring Group dropdown as unnecessarily complex-->	<tr>
+		<td>setSpeed</td>
+		<td>0</td>
+		<td></td>
+	</tr>
+	<!--Change to 'Links' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Links</td>
+		<td></td>
+	</tr>
+	<!-- using xpath= here because the links input has a different id on the gallery page -->
+	<tr>
+		<td>type</td>
+		<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
+		<td>${relatedExternalLinksTitle}</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
+		<td>${relatedExternalLinksURL}</td>
+	</tr>
+	<!--Special sequence to select AutoSuggest-->
+	<!--Used on this box because the output name has an additional '(42)' on it.-->
+	<!--Using down arrow, then click submit button to exit the dropdown-->
+	<tr>
+		<td>setSpeed</td>
+		<td>${slowSpeed}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>sendKeys</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td>${relatedContent}</td>
+	</tr>
+	<tr>
+		<td>waitForElementPresent</td>
+		<td>css=div#autocomplete</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>keyDown</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td>\40</td>
+	</tr>
+	
+	<tr>
+		<td>click</td>
+		<td>id=edit-submit</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>setSpeed</td>
+		<td>0</td>
+		<td></td>
+	</tr>	<!--Change to 'Tags' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Tags</td>
+		<td></td>
+	</tr>
+	<!--Ignoring Projects as unnecessarily complex-->
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-country-und</td>
+		<td>${country}</td>
+	</tr>	<!--Change to 'Targeting' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Targeting</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+		<td>${orgUnit}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-locations-und-0-target-id-select-1</td>
+		<td>${location}*</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=#ms-edit-field-grade-und &gt; div.ms-selectable &gt; ul.ms-list &gt; li.ms-elem-selectable</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=#ms-edit-field-region-und &gt; div.ms-selectable &gt; ul.ms-list &gt; li.ms-elem-selectable</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=li:contains('${childRegion}')</td>
+		<td></td>
+	</tr>	<!--Change to 'Publishing options' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Publishing options</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-workflow-12</td>
+		<td></td>
+	</tr>	<tr>
+		<td>clickAndWait</td>
+		<td>id=edit-submit</td>
+		<td></td>
+	</tr>
 		<tr>
 			<td>verifyElementPresent</td>
 			<td>css=div.messages.status:contains('${title} has been created.')</td>
 			<td></td>
 		</tr>
-		<!--Verify node has been created-->
-<tr>
-	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('Agreement ${title} has been created.')</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p</td>
-	<td>${body}</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${security}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${relatedExternalLinksTitle}</td>
-	<td></td>
-</tr>
-
-		<!--Update the Node-->
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Edit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-title</td>
-	<td>${title}</td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${bodyUpdate}</td>
-</tr><!-- Update Content Options-->
-<!--'Organisational' Content Options-->
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
-	<td>${section}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
-	<td>${sectionUpdate}</td>
-</tr><tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-security-classification-und</td>
-	<td>${security}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-security-classification-und</td>
-	<td>${securityUpdate}</td>
-</tr><tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
-	<td>${primaryCategory}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
-	<td>${primaryCategoryUpdate}</td>
-</tr><!--Change to 'Links' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Links</td>
-	<td></td>
-</tr>
-<!-- using xpath here because the links input has slightly different attributes on the gallery page -->
-<tr>
-	<td>verifyValue</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
-	<td>${relatedExternalLinksTitle}</td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
-	<td>${relatedExternalLinksURL}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
-	<td>${relatedExternalLinksTitleUpdate}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
-	<td>${relatedExternalLinksURLUpdate}</td>
-</tr>
-<!--Special sequence to select AutoSuggest-->
-<!--Used on this box because the output name has an additional '(42)' on it.-->
-<!--Using down arrow, then click submit button to exit the dropdown-->
-<tr>
-	<td>setSpeed</td>
-	<td>${slowSpeed}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
-	<td></td>
-</tr>
-<tr>
-	<td>sendKeys</td>
-	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
-	<td>${relatedContentUpdate}</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>css=div#autocomplete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>setSpeed</td>
-	<td>0</td>
-	<td></td>
-</tr><!--Change to 'Tags' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Tags</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-field-tags-und</td>
-	<td>${topic}</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-field-tags-und</td>
-	<td>${topicUpdate}</td>
-</tr><!--Ignoring Projects as unnecessarily complex-->
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-country-und</td>
-	<td>${country}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-country-und</td>
-	<td>${countryUpdate}</td>
-</tr><!--Change to 'Targeting' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Targeting</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
-	<td>${orgUnit}</td>
-</tr>
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=edit-field-locations-und-0-target-id-select-1</td>
-	<td>${location}*</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=li.ms-elem-selected</td>
-	<td>${roleGrade}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=#ms-edit-field-region-und &gt; div.ms-selection &gt; ul.ms-list &gt; li.ms-elem-selected</td>
-	<td>${parentRegion}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=li.ms-elem-selected[ms-value='668']</td>
-	<td>${childRegion}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
-	<td>${orgUnitUpdate}</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-field-locations-und-0-target-id-select-1</td>
-	<td>${locationUpdate}*</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=li.ms-elem-selected</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=li.ms-elem-selected</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=li.ms-elem-selected</td>
-	<td></td>
-</tr><!--Change to 'Publishing options' Content Options-->
-<tr>
-	<td>click</td>
-	<td>link=Publishing options</td>
-	<td></td>
-</tr>
-<!--Ignoring archive, review on, actions on review date, comment options-->
-<!--Verify The Node is set to Published-->
-<tr>
-	<td>verifyValue</td>
-	<td>id=edit-workflow-3</td>
-	<td>on</td>
-</tr><tr>
-	<td>clickAndWait</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
+			<!--Verify node-->
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${title})</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=p</td>
+		<td>${body}</td>
+	</tr>
+			<!--Update the Node-->
+	<tr>
+		<td>clickAndWait</td>
+		<td>link=Edit</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-title</td>
+		<td>${title}</td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-body-und-0-value</td>
+		<td>${body}</td>
+	</tr>	<tr>
+		<td>type</td>
+		<td>id=edit-title</td>
+		<td>${titleUpdate}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-body-und-0-format--2</td>
+		<td>Plain text</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>id=edit-body-und-0-value</td>
+		<td>${bodyUpdate}</td>
+	</tr>	<!--Verify end date input dissappears-->
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td>on</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td>off</td>
+	</tr>
+	<tr>
+		<td>verifyNotVisible</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-show-todate</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyVisible</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<!--Update Start Date-->
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-value-datepicker-popup-0</td>
+		<td>${startDate}</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-value-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=table.ui-datepicker-calendar</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>link=2</td>
+		<td></td>
+	</tr>
+	<!--Update End Date-->
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td>${endDate}</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>id=edit-field-implementation-date-und-0-value2-datepicker-popup-0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=table.ui-datepicker-calendar</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>css=select.ui-datepicker-month</td>
+		<td>label=Mar</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>css=select.ui-datepicker-year</td>
+		<td>label=2019</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>link=1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-type-und</td>
+		<td>${policyTypeUpdate}</td>
+	</tr>	<!--Update 'Organisational' Content Options-->
+	<tr>
+		<td>verifySelectedLabel</td>
+		<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+		<td>${section}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+		<td>${sectionUpdate}</td>
+	</tr>	<tr>
+		<td>verifySelectedLabel</td>
+		<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+		<td>${primaryCategory}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+		<td>${primaryCategoryUpdate}</td>
+	</tr>	<!--Change to 'Links' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Links</td>
+		<td></td>
+	</tr>
+	<!-- using xpath= here because the links input has a different id on the gallery page -->
+	<tr>
+		<td>type</td>
+		<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
+		<td>${relatedExternalLinksTitle}</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[2]</td>
+		<td>${relatedExternalLinksURL}</td>
+	</tr>
+	<!--Special sequence to select AutoSuggest-->
+	<!--Used on this box because the output name has an additional '(42)' on it.-->
+	<!--Using down arrow, then click submit button to exit the dropdown-->
+	<tr>
+		<td>setSpeed</td>
+		<td>${slowSpeed}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>sendKeys</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td>${relatedContent}</td>
+	</tr>
+	<tr>
+		<td>waitForElementPresent</td>
+		<td>css=div#autocomplete</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>keyDown</td>
+		<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+		<td>\40</td>
+	</tr>
+	
+	<tr>
+		<td>click</td>
+		<td>id=edit-submit</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>setSpeed</td>
+		<td>0</td>
+		<td></td>
+	</tr>	<!--Change to 'Tags' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Tags</td>
+		<td></td>
+	</tr>
+	<!--Ignoring Projects as unnecessarily complex-->
+	<tr>
+		<td>verifySelectedLabel</td>
+		<td>id=edit-field-country-und</td>
+		<td>${country}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-country-und</td>
+		<td>${countryUpdate}</td>
+	</tr>	<!--Change to 'Targeting' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Targeting</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifySelectedLabel</td>
+		<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+		<td>${orgUnit}</td>
+	</tr>
+	<tr>
+		<td>verifySelectedLabel</td>
+		<td>id=edit-field-locations-und-0-target-id-select-1</td>
+		<td>${location}*</td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=li.ms-elem-selected</td>
+		<td>${roleGrade}</td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=#ms-edit-field-region-und &gt; div.ms-selection &gt; ul.ms-list &gt; li.ms-elem-selected</td>
+		<td>${parentRegion}</td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=li.ms-elem-selected[ms-value='668']</td>
+		<td>${childRegion}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+		<td>${orgUnitUpdate}</td>
+	</tr>
+	<tr>
+		<td>select</td>
+		<td>id=edit-field-locations-und-0-target-id-select-1</td>
+		<td>${locationUpdate}*</td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=li.ms-elem-selected</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=li.ms-elem-selected</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>click</td>
+		<td>css=li.ms-elem-selected</td>
+		<td></td>
+	</tr>	<!--Change to 'Publishing options' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Publishing options</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyValue</td>
+		<td>id=edit-workflow-12</td>
+		<td>on</td>
+	</tr>		<!--Verify author cannot delete-->
+		<tr>
+			<td>verifyElementNotPresent</td>
+			<td>id=edit-delete</td>
+			<td></td>
+		</tr>	<tr>
+		<td>clickAndWait</td>
+		<td>id=edit-submit</td>
+		<td></td>
+	</tr>
 		<tr>
 			<td>verifyElementPresent</td>
 			<td>css=div.messages.status:contains('${titleUpdate} has been updated.')</td>
 			<td></td>
 		</tr>
-		<!--Verify node has been updated-->
-<tr>
-	<td>open</td>
-	<td>/agreement/${titleUpdate}</td>
-	<td></td>
-</tr>
-<!-- we do not verify the message here because this step is reused in multiple places. -->
-<tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p</td>
-	<td>${bodyUpdate}</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${securityUpdate}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${relatedExternalLinksTitleUpdate}</td>
-	<td></td>
-</tr>
-
+			<!--Verify node has been updated-->
+	<tr>
+		<td>open</td>
+		<td>/policy/${titleUpdate}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${titleUpdate})</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=p</td>
+		<td>${bodyUpdate}</td>
+	</tr>
 		<!-- Logout -->
 		<tr>
 			<td>open</td>
@@ -939,60 +1032,48 @@
 			<td>clickAndWait</td>
 			<td>id=edit-submit</td>
 			<td></td>
-		</tr>		<!--Verify node has been updated-->
-<tr>
-	<td>open</td>
-	<td>/agreement/${titleUpdate}</td>
-	<td></td>
-</tr>
-<!-- we do not verify the message here because this step is reused in multiple places. -->
-<tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${titleUpdate}</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p</td>
-	<td>${bodyUpdate}</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${securityUpdate}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=${relatedExternalLinksTitleUpdate}</td>
-	<td></td>
-</tr>
-
-		<!-- delete Node -->
-<tr>
-	<td>open</td>
-	<td>//${titleUpdate}</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Edit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=edit-delete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=edit-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>css=div.messages.status:contains('${titleUpdate} has been deleted.')</td>
-	<td></td>
-</tr>
+		</tr>			<!--Verify node has been updated-->
+	<tr>
+		<td>open</td>
+		<td>/policy/${titleUpdate}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${titleUpdate})</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyText</td>
+		<td>css=p</td>
+		<td>${bodyUpdate}</td>
+	</tr>
+			<!-- delete Node -->
+	<tr>
+		<td>open</td>
+		<td>/policy/${titleUpdate}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>clickAndWait</td>
+		<td>link=Edit</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>clickAndWait</td>
+		<td>id=edit-delete</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>clickAndWait</td>
+		<td>id=edit-submit</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>css=div.messages.status:contains('${titleUpdate} has been deleted.')</td>
+		<td></td>
+	</tr>
 
 		<!--Delete User-->
 		<tr>

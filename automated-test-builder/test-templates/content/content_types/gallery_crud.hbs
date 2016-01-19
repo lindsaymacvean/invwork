@@ -13,9 +13,6 @@ typeURL: gallery
 </tr>
 {{> enter_title_body}}
 {{> set_content_options}}
-{{#if userCantDelete}}
-	{{> verify_cant_delete}}
-{{/if}}
 {{> publish_node}}
 {{/content}}
 
@@ -39,6 +36,9 @@ typeURL: gallery
 {{> verify_edit_title_body_update}}
 {{> enter_title_body_update}}
 {{> update_content_options}}
+{{#if userCantDelete}}
+	{{> verify_cant_delete}}
+{{/if}}
 {{> publish_node}}
 {{/content}}
 

@@ -81,7 +81,7 @@
 		</tr>
 		<tr>
 			<td>store</td>
-			<td>javascript{'History Of Golf'}</td>
+			<td>javascript{'A History of Golf'}</td>
 			<td>relatedContent</td>
 		</tr>
 		<tr>
@@ -199,7 +199,26 @@
 			<td>javascript{'user_placeholder.png'}</td>
 			<td>img</td>
 		</tr>
-		<!-- Logout -->
+		<tr>
+			<td>store</td>
+			<td>javascript{'Constituent'}</td>
+			<td>policyType</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'Distributive'}</td>
+			<td>policyTypeUpdate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'01/01/2016'}</td>
+			<td>startDate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'05/02/2019'}</td>
+			<td>endDate</td>
+		</tr>		<!-- Logout -->
 		<tr>
 			<td>open</td>
 			<td>/user/logout</td>
@@ -525,13 +544,7 @@
 		<td>click</td>
 		<td>id=edit-workflow-3</td>
 		<td></td>
-	</tr>
-		<!--Verify author cannot delete-->
-		<tr>
-			<td>verifyElementNotPresent</td>
-			<td>id=edit-delete</td>
-			<td></td>
-		</tr>	<tr>
+	</tr>	<tr>
 		<td>clickAndWait</td>
 		<td>id=edit-submit</td>
 		<td></td>
@@ -543,9 +556,9 @@
 		</tr>
 			<!--Verify node-->
 	<tr>
-		<td>verifyText</td>
-		<td>css=h2.pane-title</td>
-		<td>${title}</td>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${title})</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>verifyText</td>
@@ -689,7 +702,12 @@
 		<td>verifyValue</td>
 		<td>id=edit-workflow-3</td>
 		<td>on</td>
-	</tr>	<tr>
+	</tr>		<!--Verify author cannot delete-->
+		<tr>
+			<td>verifyElementNotPresent</td>
+			<td>id=edit-delete</td>
+			<td></td>
+		</tr>	<tr>
 		<td>clickAndWait</td>
 		<td>id=edit-submit</td>
 		<td></td>
@@ -706,9 +724,9 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>verifyText</td>
-		<td>css=h2.pane-title</td>
-		<td>${titleUpdate}</td>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${titleUpdate})</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>verifyText</td>
@@ -753,9 +771,9 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>verifyText</td>
-		<td>css=h2.pane-title</td>
-		<td>${titleUpdate}</td>
+		<td>verifyElementPresent</td>
+		<td>css=*:contains(${titleUpdate})</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>verifyText</td>

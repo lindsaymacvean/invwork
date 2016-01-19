@@ -42,10 +42,6 @@ typeURL: promotion
 	{{> meta_tags_country}}
 	{{> meta_targeting}}
 	{{> meta_publishing}}
-
-	{{#if userCantDelete}}
-		{{> verify_cant_delete}}
-	{{/if}}
 	{{> publish_node}}
 {{/content}}
 
@@ -57,9 +53,9 @@ typeURL: promotion
 		<td>link=${relatedExternalLinksURL}</td>
 		<td>${relatedExternalLinksURL}</td>
 	</tr>
-	{{/content}}
+{{/content}}
 
-	{{#content "Update Node"}}
+{{#content "Update Node"}}
 	<!--Update the Node-->
 	<tr>
 		<td>clickAndWait</td>
@@ -92,6 +88,9 @@ typeURL: promotion
 	{{> meta_tags_country_update}}
 	{{> meta_targeting_update}}
 	{{> meta_publishing_update}}
+	{{#if userCantDelete}}
+		{{> verify_cant_delete}}
+	{{/if}}
 	{{> publish_node}}
 {{/content}}
 

@@ -1,0 +1,25 @@
+<!--'Organisational' Content Options-->
+	{{> meta_organisational_section}}
+	<!-- slow speed here for auto suggest and sub category drop downs -->
+	<tr>
+		<td>setSpeed</td>
+		<td>${slowSpeed}</td>
+		<td></td>
+	</tr>
+	{{> meta_organisational_primary_category}}
+	<tr>
+		<td>setSpeed</td>
+		<td>0</td>
+		<td></td>
+	</tr>
+
+	<!--Change to 'Tags' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Tags</td>
+		<td></td>
+	</tr>
+	<!--Ignoring Projects as unnecessarily complex-->
+	{{> meta_tags_country}}
+{{> meta_targeting}}
+{{> meta_publishing}}

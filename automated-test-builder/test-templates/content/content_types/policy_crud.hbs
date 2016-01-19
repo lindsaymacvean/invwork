@@ -12,14 +12,11 @@ typeURL: policy
 		<td></td>
 	</tr>
 	{{> enter_title_body}}
-	<tr>
-		<td>type</td>
-		<td>id=edit-field-link-und-0-url</td>
-		<td>${relatedExternalLinksURL}</td>
-	</tr>
+	{{> policy_specific_steps}}
 	<!--'Organisational' Content Options-->
-	{{!-- missing sitesection, security, owner, links section, general topic, so splitting the steps out individually 
+	{{!-- missing security, owner, links section, general topic, so splitting the steps out individually 
 		and setting slow speed here. It would normally be set in meta_organisational.hbs --}}
+	{{> meta_organisational_section}}
 	<tr>
 		<td>setSpeed</td>
 		<td>${slowSpeed}</td>
@@ -31,6 +28,7 @@ typeURL: policy
 		<td>0</td>
 		<td></td>
 	</tr>
+	{{> meta_links}}
 	<!--Change to 'Tags' Content Options-->
 	<tr>
 		<td>click</td>
@@ -41,25 +39,22 @@ typeURL: policy
 	<!--Ignoring Projects as unnecessarily complex-->
 	{{> meta_tags_country}}
 	{{> meta_targeting}}
-	{{> meta_publishing}}
-
-	{{#if userCantDelete}}
-		{{> verify_cant_delete}}
-	{{/if}}
+	<!--Change to 'Publishing options' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Publishing options</td>
+		<td></td>
+	</tr>
+	{{> send_to_publisher}}
 	{{> publish_node}}
 {{/content}}
 
 {{#content "Verify Node"}}
 	<!--Verify node-->
 	{{> verify_view_title_body}}
-	<tr>
-		<td>verifyText</td>
-		<td>link=${relatedExternalLinksURL}</td>
-		<td>${relatedExternalLinksURL}</td>
-	</tr>
-	{{/content}}
+{{/content}}
 
-	{{#content "Update Node"}}
+{{#content "Update Node"}}
 	<!--Update the Node-->
 	<tr>
 		<td>clickAndWait</td>
@@ -68,19 +63,12 @@ typeURL: policy
 	</tr>
 	{{> verify_edit_title_body_update}}
 	{{> enter_title_body_update}}
-	<tr>
-		<td>verifyValue</td>
-		<td>id=edit-field-link-und-0-url</td>
-		<td>${relatedExternalLinksURL}</td>
-	</tr>
-	<tr>
-		<td>type</td>
-		<td>id=edit-field-link-und-0-url</td>
-		<td>${relatedExternalLinksURLUpdate}</td>
-	</tr>
+	{{> policy_specific_steps_update}}
 	<!--Update 'Organisational' Content Options-->
-	{{!-- missing sitesection, security, owner, links section, general topic, so splitting the steps out individually --}}
+	{{!-- missing security, owner, links section, general topic, so splitting the steps out individually --}}
+	{{> meta_organisational_section_update}}
 	{{> meta_organisational_primary_category_update}}
+	{{> meta_links}}
 	<!--Change to 'Tags' Content Options-->
 	<tr>
 		<td>click</td>
@@ -91,7 +79,17 @@ typeURL: policy
 	<!--Ignoring Projects as unnecessarily complex-->
 	{{> meta_tags_country_update}}
 	{{> meta_targeting_update}}
-	{{> meta_publishing_update}}
+	{{!-- not changing publishing settings as policy is in the send to publisher workflow --}}
+	<!--Change to 'Publishing options' Content Options-->
+	<tr>
+		<td>click</td>
+		<td>link=Publishing options</td>
+		<td></td>
+	</tr>
+	{{> send_to_publisher_update}}
+	{{#if userCantDelete}}
+		{{> verify_cant_delete}}
+	{{/if}}
 	{{> publish_node}}
 {{/content}}
 
@@ -103,11 +101,6 @@ typeURL: policy
 		<td></td>
 	</tr>
 	{{> verify_view_title_body_update}}
-	<tr>
-		<td>verifyText</td>
-		<td>link=${relatedExternalLinksURLUpdate}</td>
-		<td>${relatedExternalLinksURLUpdate}</td>
-	</tr>
 {{/content}}
 
 {{#content "Delete Node"}}

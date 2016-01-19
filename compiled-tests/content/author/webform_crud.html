@@ -81,7 +81,7 @@
 		</tr>
 		<tr>
 			<td>store</td>
-			<td>javascript{'History Of Golf'}</td>
+			<td>javascript{'A History of Golf'}</td>
 			<td>relatedContent</td>
 		</tr>
 		<tr>
@@ -199,7 +199,26 @@
 			<td>javascript{'user_placeholder.png'}</td>
 			<td>img</td>
 		</tr>
-		<!-- Logout -->
+		<tr>
+			<td>store</td>
+			<td>javascript{'Constituent'}</td>
+			<td>policyType</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'Distributive'}</td>
+			<td>policyTypeUpdate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'01/01/2016'}</td>
+			<td>startDate</td>
+		</tr>
+		<tr>
+			<td>store</td>
+			<td>javascript{'05/02/2019'}</td>
+			<td>endDate</td>
+		</tr>		<!-- Logout -->
 		<tr>
 			<td>open</td>
 			<td>/user/logout</td>
@@ -443,7 +462,6 @@
 	<td>id=edit-body-und-0-value</td>
 	<td>${body}</td>
 </tr><!--'Organisational' Content Options-->
-<!--'Organisational' Content Options-->
 <tr>
 	<td>select</td>
 	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
@@ -501,16 +519,13 @@
 	<td>setSpeed</td>
 	<td>0</td>
 	<td></td>
-</tr>
-
-
-<!--Change to 'Links' Content Options-->
+</tr><!--Change to 'Links' Content Options-->
 <tr>
 	<td>click</td>
 	<td>link=Links</td>
 	<td></td>
 </tr>
-<!-- using name= here because the links input has a different id on the gallery page -->
+<!-- using xpath= here because the links input has a different id on the gallery page -->
 <tr>
 	<td>type</td>
 	<td>xpath=(//input[contains(@name, 'field_related_external_links[und][0]')])[1]</td>
@@ -637,9 +652,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${title}</td>
+	<td>verifyElementPresent</td>
+	<td>css=*:contains(${title})</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyText</td>
@@ -877,9 +892,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${titleUpdate}</td>
+	<td>verifyElementPresent</td>
+	<td>css=*:contains(${titleUpdate})</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyText</td>
@@ -924,9 +939,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>css=h2.pane-title</td>
-	<td>${titleUpdate}</td>
+	<td>verifyElementPresent</td>
+	<td>css=*:contains(${titleUpdate})</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyText</td>
