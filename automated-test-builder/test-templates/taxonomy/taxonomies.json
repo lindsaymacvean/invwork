@@ -1,0 +1,13 @@
+{
+	"template": "taxonomies.hbs",
+	"products": [
+		{
+			"name": "product1",
+			"price": "€ 2,40"
+		},
+		{
+			"name": "product2",
+			"price": "€ 1,40"
+		}
+	]
+}

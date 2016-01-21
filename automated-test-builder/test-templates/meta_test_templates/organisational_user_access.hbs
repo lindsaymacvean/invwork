@@ -1,0 +1,202 @@
+---
+url: lindsay
+user: orguser
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://{{ url }}.invotra.io1test.com" />
+<title>{{ title }}</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">{{ title }}</td></tr>
+</thead><tbody>
+<!--org_user Content Types Access test -->
+<!-- The org user can only access the list, questions, and discussions when they are added to a site section -->
+		{{> variables }}
+		{{> logout }}
+		{{> login_webmaster }}
+		{{> create_user }}
+		{{> logout }}
+		{{> login_user }}
+		<tr>
+			<td>open</td>
+			<td>/node/add/custom/44</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/blog</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/event</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/external-resource</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/gallery</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/teamspace</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/multi-media</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/news</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/page</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/policy</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/poll</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/custom/45</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/promotion</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/notice</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/custom/46</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/webform</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		<tr>
+			<td>open</td>
+			<td>/node/add/wiki-page</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>verifyText</td>
+			<td>id=page-title</td>
+			<td>Access denied</td>
+		</tr>
+		{{> logout }}
+		{{> login_webmaster }}
+		{{> delete_user }}
+		{{> logout }}
+</tbody></table>
+</body>
+</html>

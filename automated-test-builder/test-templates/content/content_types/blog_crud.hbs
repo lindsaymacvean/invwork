@@ -1,0 +1,54 @@
+---
+title: Blog CRUD
+type: Blog
+typeURL: blog-entry
+---
+
+{{#content "Edit Node"}}
+<!--Add node-->
+<tr>
+	<td>open</td>
+	<td>/node/add/{{type}}</td>
+	<td></td>
+</tr>
+{{> enter_title_body}}
+{{> meta_tags_topic}}
+{{> meta_publishing}}
+{{> publish_node}}
+{{/content}}
+
+{{#content "Verify Node"}}
+<!--Verify node-->
+{{> verify_view_title_body}}
+{{/content}}
+
+{{#content "Update Node"}}
+<!--Update the Node-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+{{> verify_edit_title_body_update}}
+{{> enter_title_body_update}}
+{{> meta_tags_topic_update}}
+{{> meta_publishing_update}}
+{{#if userCantDelete}}
+	{{> verify_cant_delete}}
+{{/if}}
+{{> publish_node}}
+{{/content}}
+
+{{#content "Verify Updated Node"}}
+<!--Verify node has been updated-->
+<tr>
+	<td>open</td>
+	<td>/{{typeURL}}/${titleUpdate}</td>
+	<td></td>
+</tr>
+{{> verify_view_title_body_update}}
+{{/content}}
+
+{{#content "Delete Node"}}
+{{> delete_node}}
+{{/content}}

@@ -1,0 +1,66 @@
+---
+title: Event CRUD
+type: Event
+typeURL: event
+---
+
+{{#content "Edit Node"}}
+	<!--Add node-->
+	<tr>
+		<td>open</td>
+		<td>/node/add/{{type}}</td>
+		<td></td>
+	</tr>
+	{{> enter_title_body}}
+	{{> event_specific_steps}}
+	{{> set_content_options}}
+	{{> publish_node}}
+{{/content}}
+
+{{#content "Verify Node"}}
+	<!--Verify node-->
+	{{> verify_view_title_body}}
+	{{> event_specific_verify}}
+	<tr>
+		<td>verifyElementPresent</td>
+		<td>link=${relatedExternalLinksTitle}</td>
+		<td></td>
+	</tr>
+{{/content}}
+
+{{#content "Update Node"}}
+	<!--Update the Node-->
+	<tr>
+		<td>clickAndWait</td>
+		<td>link=Edit</td>
+		<td></td>
+	</tr>
+	{{> verify_edit_title_body_update}}
+	{{> enter_title_body_update}}
+	{{> event_specific_steps_update}}
+	{{> update_content_options}}
+	{{#if userCantDelete}}
+		{{> verify_cant_delete}}
+	{{/if}}
+	{{> publish_node}}
+{{/content}}
+
+{{#content "Verify Updated Node"}}
+	<!--Verify node has been updated-->
+	<tr>
+		<td>open</td>
+		<td>/{{typeURL}}/${titleUpdate}</td>
+		<td></td>
+	</tr>
+	{{> verify_view_title_body_update}}
+	{{> event_specific_verify_update}}
+	<tr>
+		<td>verifyText</td>
+		<td>link=${relatedExternalLinksTitleUpdate}</td>
+		<td>${relatedExternalLinksTitleUpdate}</td>
+	</tr>
+{{/content}}
+
+{{#content "Delete Node"}}
+	{{> delete_node}}
+{{/content}}
