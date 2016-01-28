@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSourceForumsTerms</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSourceForumsTerms</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forums'}</td>
+	<td>discussion_term</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forums 2'}</td>
+	<td>discussion_term2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forums 3'}</td>
+	<td>discussion_term3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Body'}</td>
+	<td>discussion_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forum Update'}</td>
+	<td>discussion_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Body'}</td>
+	<td>discussion_body_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Forum Body'}</td>
+	<td>update_body</td>
+</tr>
+<!--Log in as Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to Forum Landing page-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forums</td>
+	<td></td>
+</tr>
+<!--Create new term-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${discussion_term}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-description-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${discussion_body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Forum term Created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Created new forum Discussion Forums.</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Discussion Body</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Forums</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page-title</td>
+	<td>Forums</td>
+</tr>
+<!--Update Term-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Discussion Forums</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${discussion_update}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${discussion_body_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Update-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Created new forum Discussion Forum Update.</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Update Body </td>
+</tr>
+<!--Delete Forum Term-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.delete-taxonomy-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Deletion-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Deleted term Discussion Forum Update.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

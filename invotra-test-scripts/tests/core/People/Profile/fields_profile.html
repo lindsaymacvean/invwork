@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://lindsay.invotra.io1test.com" />
+<title>fields_profile</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">fields_profile</td></tr>
+</thead><tbody>
+<!--People: Profile Fields Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Default OU'}</td>
+	<td>unit</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>http://io1auth:t3mp0r4ryp455w0rd@tiko.invotra.io1test.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://io1auth:t3mp0r4ryp455w0rd@jonnie.invotra.io1test.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://io1auth:t3mp0r4ryp455w0rd@govnightly.invotra.io1test.com/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify fields-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-forename-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-surname-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-job-role-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-interests-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-phone-no-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-phone-mobile-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-birthday-und-0-value-datepicker-popup-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-manager-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

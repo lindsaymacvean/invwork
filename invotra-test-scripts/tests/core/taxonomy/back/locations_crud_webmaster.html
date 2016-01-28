@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://sow10.invotra.io1test.com/" />
+<title>locations</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">locations</td></tr>
+</thead><tbody>
+<!--TEST webmaster CRUD Organisational units-->
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<!--I add "00000" because I want my new term to be in the Top of the list (easear) to find.-->
+<tr>
+	<td>storeEval</td>
+	<td>'locations'</td>
+	<td>TaxonomySection</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>postcode</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>phone</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'test@test.com'</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr1Update</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr2Update</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr3Update</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>postcodeUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>phoneUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'test1@test.com'</td>
+	<td>emailUpdate</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify mandatory fields-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-weight</td>
+	<td> </td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.messages.error ul li:contains(Name field is required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.messages.error ul li:contains(Weight field is required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.messages.error ul li:contains(Type field is required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-weight</td>
+	<td>0</td>
+</tr>
+<!--verify fields are present on taxonomy add page-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.form-item.form-type-textfield.form-item-name label:contains(Name)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.form-item.form-type-select.form-item-parent label:contains(Parent terms)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-parent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.form-item.form-type-textfield.form-item-weight label:contains(Weight)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-weight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.cke_wrapper.cke_ltr</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.form-item.form-type-textarea.form-item-description-value label:contains(Description)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-global-id-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-georeference-und-0 legend span.fieldset-legend</td>
+	<td>Georeference</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.form-item.form-type-select.form-item-field-location-type-und label:contains(Type)</td>
+	<td></td>
+</tr>
+<!--check fields for site location-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-angle-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-latitude-und-0-value h4 label</td>
+	<td>Latitude</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-latitude-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-longitude-und-0-value h4 label</td>
+	<td>Longitude</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-longitude-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-height-above-sea-level-und-0-value h4 label</td>
+	<td>Height above sea level</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-height-above-sea-level-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-location-address-und-0 legend span.fieldset-legend</td>
+	<td>Address</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-one-und-0-value h4 label</td>
+	<td>Address line 1</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-two-und-0-value h4 label</td>
+	<td>Address line 2</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-two-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-three-und-0-value h4 label</td>
+	<td>Address line 3</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-select.form-item-field-location-address-und-0-field-country-und h4 label</td>
+	<td>Country</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-country-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-location-postcode-und-0-value h4 label</td>
+	<td>Postcode</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-region-und h4 label</td>
+	<td>Region</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-region-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-phone-no-und-0-value h4 label</td>
+	<td>Phone no.</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-phone-no-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-email-und-0-email h4 label</td>
+	<td>Email</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-email-und-0-email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-map-und-0-title label</td>
+	<td>Map</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-map-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-select.form-item-field-organisational-unit-und h4 label</td>
+	<td>Organisational unit</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-organisational-unit-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=#edit-field-building-plan-und-0-title h4 label</td>
+	<td>Building plan</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-building-plan-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-floor-index-und-0-value h4 label</td>
+	<td>Floor index</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-floor-height-und-0-value h4 label</td>
+	<td>Floor height</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=#edit-field-floor-plan-und-0-title h4 label</td>
+	<td>Floor plan</td>
+</tr>
+<!--verify fields for Building-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Building</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-angle-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-latitude-und-0-value h4 label</td>
+	<td>Latitude</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-latitude-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-longitude-und-0-value h4 label</td>
+	<td>Longitude</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-longitude-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-georeference-und-0-field-height-above-sea-level-und-0-value h4 label</td>
+	<td>Height above sea level</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-georeference-und-0-field-height-above-sea-level-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-location-address-und-0 legend span.fieldset-legend</td>
+	<td>Address</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-one-und-0-value h4 label</td>
+	<td>Address line 1</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-two-und-0-value h4 label</td>
+	<td>Address line 2</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-two-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-address-line-three-und-0-value h4 label</td>
+	<td>Address line 3</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-select.form-item-field-location-address-und-0-field-country-und h4 label</td>
+	<td>Country</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-country-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-location-postcode-und-0-value h4 label</td>
+	<td>Postcode</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-location-address-und-0-field-region-und h4 label</td>
+	<td>Region</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-location-address-und-0-field-region-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-phone-no-und-0-value h4 label</td>
+	<td>Phone no.</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-phone-no-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-email-und-0-email h4 label</td>
+	<td>Email</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-email-und-0-email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-map-und-0-title label</td>
+	<td>Map</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-map-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-select.form-item-field-organisational-unit-und h4 label</td>
+	<td>Organisational unit</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-building-plan-und-0-title label</td>
+	<td>Building plan</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-building-plan-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>//div[@id='field-floor-index-add-more-wrapper']/div/label</td>
+	<td>Floor index</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-floor-height-und-0-value label</td>
+	<td>Floor height</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>css=#edit-field-floor-plan-und-0-title label</td>
+	<td>Floor plan</td>
+</tr>
+<!--verify fields for floor-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Floor</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-floor-index-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-floor-index-und-0-value h4 label</td>
+	<td>Floor index</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-floor-height-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.form-item.form-type-textfield.form-item-field-floor-height-und-0-value h4 label</td>
+	<td>Floor height</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#edit-field-floor-plan-und-0-title label</td>
+	<td>Floor plan</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-field-floor-plan-und-0-select</td>
+	<td></td>
+</tr>
+<!--verify field which should be present for all types-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-invotra-archived-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=label.option</td>
+	<td>Archive</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-path-pathauto</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.option:contains(Generate automatic URL alias)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-path-alias</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.option:contains(URL alias)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#edit-status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.option:contains(Published)</td>
+	<td></td>
+</tr>
+<!--Create a taxonomy term-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-angle-und-0-value</td>
+	<td>${title}Angle</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-latitude-und-0-value</td>
+	<td>${title}Lat</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-longitude-und-0-value</td>
+	<td>${title}Long</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-height-above-sea-level-und-0-value</td>
+	<td>${title}Heigh</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td>${addr1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-two-und-0-value</td>
+	<td>${addr2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td>${addr3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td>${postcode}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-phone-no-und-0-value</td>
+	<td>${phone}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-email-und-0-email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify taxonomy term created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${title}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title}')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(td:contains('${body}'))</td>
+	<td></td>
+</tr>
+<!--Verify values-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains(Telephone)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains('${phone}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains('${email}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(Address)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr1})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr3})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${postcode})</td>
+	<td></td>
+</tr>
+<!--verify term can't be it's own parent-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.ms-list:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=//.div.view-content.div[3]</td>
+	<td></td>
+</tr>
+<!--verify values on edit page-->
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-georeference-und-0-field-angle-und-0-value</td>
+	<td>${title}Angl</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-georeference-und-0-field-latitude-und-0-value</td>
+	<td>${title}Lat</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-georeference-und-0-field-longitude-und-0-value</td>
+	<td>${title}Long</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-georeference-und-0-field-height-above-sea-level-und-0-value</td>
+	<td>${title}Heig</td>
+</tr>
+<!--Update term-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-angle-und-0-value</td>
+	<td>andle_update</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-latitude-und-0-value</td>
+	<td>lat_update</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-longitude-und-0-value</td>
+	<td>long_update</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-georeference-und-0-field-height-above-sea-level-und-0-value</td>
+	<td>heigh_update</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td>${addr1Update}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-two-und-0-value</td>
+	<td>${addr2Update}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td>${addr3Update}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td>${postcodeUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-phone-no-und-0-value</td>
+	<td>${phoneUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-email-und-0-email</td>
+	<td>${emailUpdate}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify term has been Updated-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${titleUpdate}')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(td:contains('${bodyUpdate}'))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=tr:has(a:contains('${title}')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=tr:has(td:contains('${body}'))</td>
+	<td></td>
+</tr>
+<!--Verify values-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains(Telephone)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains('${phoneUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#mini-panel-location_contact_us:contains('${emailUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(Address)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr1Update})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr2Update})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr3Update})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${postcodeUpdate})</td>
+	<td></td>
+</tr>
+<!--Delete term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${titleUpdate}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${titleUpdate})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${titleUpdate}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div.panel-pane.pane-vocabulary &gt; div.pane-content:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+-->
+
+</tbody></table>
+</body>
+</html>

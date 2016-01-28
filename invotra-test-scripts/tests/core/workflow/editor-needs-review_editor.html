@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hmrclive.invotra.io1test.com/" />
+<title>editor_needs-review_workflow</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">editor_needs-review_workflow</td></tr>
+</thead><tbody>
+<!--Workflow: send to editor - needs review Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'organisational user'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor user'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'author user'}</td>
+	<td>author</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>pageTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>pageBody</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Set workflow-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-blog-workflow</td>
+	<td>Send to Editor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-page-workflow</td>
+	<td>Send to Editor</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-news-workflow</td>
+	<td>Send to Editor</td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>Workflow Access Priority</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Log in as editor-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Add node-->
+<tr>
+	<td>open</td>
+	<td>/node/add/blog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Blog entry ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=${title}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-content &gt; p</td>
+	<td>${body}</td>
+</tr>
+<!--Verify editor cannot delete node-->
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<!--Add news-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${titleUpdate} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<!--Verify editor cannot delete node-->
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-7</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<!--Add page-->
+<tr>
+	<td>open</td>
+	<td>/node/add/page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${pageTitle}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${pageBody}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Page ${pageTitle} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${pageTitle}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${pageBody}</td>
+</tr>
+<!--Verify editor cannot delete node-->
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-7</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify webmaster can delete draft content-->
+<tr>
+	<td>open</td>
+	<td>/blog-entry/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/news/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/page/${pageTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<!--Log in as editor-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify content has not been published-->
+<tr>
+	<td>open</td>
+	<td>/section/${section}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotText</td>
+	<td>${pageTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=${pageTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<!--Change workflow of node as editor-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/needs-review</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-7</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify updated-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Blog entry ${title} has been updated.</td>
+</tr>
+<!--Verify blog is now published-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<!--Change workflow of node as editor-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/needs-review</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-7</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify updated-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message News ${titleUpdate} has been updated.</td>
+</tr>
+<!--Verify news is now published-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<!--Change workflow of node as editor-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/needs-review</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${pageTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-7</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify updated-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Page ${pageTitle} has been updated.</td>
+</tr>
+<!--Verify page is now published-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-workflow-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Delete blog-->
+<tr>
+	<td>open</td>
+	<td>/blog-entry/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Blog entry ${title} has been deleted.')</td>
+	<td></td>
+</tr>
+<!--Delete news-->
+<tr>
+	<td>open</td>
+	<td>/news/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<!--Delete page-->
+<tr>
+	<td>open</td>
+	<td>/page/${pageTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Page ${pageTitle} has been deleted.')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

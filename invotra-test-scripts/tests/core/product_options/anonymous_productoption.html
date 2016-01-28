@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://chelsea.invotra.io1test.com" />
+<title>anonymous_productoption</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">anonymous_productoption</td></tr>
+</thead><tbody>
+<!--Anonymous content access test Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'1'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>pass</td>
+</tr>
+<!--Log in as admin-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${pass}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify product option is off-->
+<tr>
+	<td>open</td>
+	<td>/admin/config/system/product-options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-product-options-anon-access</td>
+	<td>off</td>
+</tr>
+<!--Enable product option-->
+<tr>
+	<td>click</td>
+	<td>id=edit-product-options-anon-access</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>120000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.messages.status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-product-options-anon-access</td>
+	<td>on</td>
+</tr>
+<!--Verify that I can log in anonymously and access a site section-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Library</td>
+</tr>
+<!--Verify anon user doesn't have access to toolbar-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=toolbar-section</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSourceWidget</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSourceWidget</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum Test'}</td>
+	<td>forumtest_title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Forum Test'}</td>
+	<td>update_title</td>
+</tr>
+<!--Log in as Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navagaite to Home Page IPE-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ipe-toolbar-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='panels-ipe-regionid-column2']/div/div[2]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Forum widget</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=override-title-checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=override-title-textfield</td>
+	<td>${forumtest_title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-forum-tid</td>
+	<td>label=General discussion</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;62&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-forum-topics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-return</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@id='panels-ipe-save'])[24]</td>
+	<td></td>
+</tr>
+<!--Verify Created Forum Widget-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=pane-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>horizonbuild</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>horizonbuild</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Hot topic without new posts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=topic-icon-closed</td>
+	<td>Locked topic</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=topic-icon-new</td>
+	<td>New posts</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=forum-details</td>
+	<td>Sub Forum Test</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=pane-content</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

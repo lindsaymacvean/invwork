@@ -1,13 +1,182 @@
 {
-	"template": "taxonomies.hbs",
-	"products": [
-		{
-			"name": "product1",
-			"price": "€ 2,40"
-		},
-		{
-			"name": "product2",
-			"price": "€ 1,40"
-		}
-	]
+    "pages": [
+        {
+            "filename": "acronyms_crud",
+            "data": {
+                "taxonomy_url": "acronyms",
+                "type": "Acronyms"
+            }
+        },
+        {
+            "filename": "countries_crud",
+            "data": {
+                "taxonomy_url": "countries",
+                "type": "Countries"
+            }
+        },
+        {
+            "filename": "discusion_topics_crud",
+            "data": {
+                "taxonomy_url": "discussion-topics",
+                "type": "Discussion topics"
+            }
+        },
+        {
+            "filename": "event_statuses_crud",
+            "data": {
+                "taxonomy_url": "event-statuses",
+                "type": "Event statuses"
+            }
+        },
+        {
+            "filename": "event_topics_crud",
+            "data": {
+                "taxonomy_url": "event-topics",
+                "type": "Event topics"
+            }
+        },
+        {
+            "filename": "general_topics_crud",
+            "data": {
+                "taxonomy_url": "general-topics",
+                "type": "General topics"
+            }
+        },
+        {
+            "filename": "job_roles_crud",
+            "data": {
+                "taxonomy_url": "job-roles",
+                "type": "Job roles"
+            }
+        },
+        {
+            "filename": "note_categories_crud",
+            "data": {
+                "taxonomy_url": "note-categories",
+                "type": "Note categories"
+            }
+        },
+        {
+            "filename": "note_statuses_crud",
+            "data": {
+                "taxonomy_url": "note-statuses",
+                "type": "Note statuses"
+            }
+        },
+        {
+            "filename": "note_types_crud",
+            "data": {
+                "taxonomy_url": "note-types",
+                "type": "Note types"
+            }
+        },
+        {
+            "filename": "locations_crud",
+            "data": {
+                "taxonomy_url": "locations",
+                "type": "Locations"
+            }
+        },
+        {
+            "filename": "organisational_units_crud",
+            "data": {
+                "taxonomy_url": "organisational-units",
+                "type": "Organisational units"
+            }
+        },
+        {
+            "filename": "person_types_crud",
+            "data": {
+                "taxonomy_url": "person-types",
+                "type": "Person types"
+            }
+        },
+        {
+            "filename": "personal_interests_crud",
+            "data": {
+                "taxonomy_url": "personal-interests",
+                "type": "Personal interests"
+            }
+        },
+        {
+            "filename": "policy_types_crud",
+            "data": {
+                "taxonomy_url": "policy-types",
+                "type": "Policy types"
+            }
+        },
+        {
+            "filename": "primary_categories_crud",
+            "data": {
+                "taxonomy_url": "primary-categories",
+                "type": "Primary categories"
+            }
+        },
+        {
+            "filename": "projects_crud",
+            "data": {
+                "taxonomy_url": "projects",
+                "type": "Projects"
+            }
+        },
+        {
+            "filename": "regions_crud",
+            "data": {
+                "taxonomy_url": "regions",
+                "type": "Regions"
+            }
+        },
+        {
+            "filename": "role_grades_crud",
+            "data": {
+                "taxonomy_url": "role-grades",
+                "type": "Role grades"
+            }
+        },
+        {
+            "filename": "role_responsibilities_crud",
+            "data": {
+                "taxonomy_url": "role-responsibilities",
+                "type": "Role responsibilities"
+            }
+        },
+        {
+            "filename": "security_classifications_crud",
+            "data": {
+                "taxonomy_url": "security-classifications",
+                "type": "Security classifications"
+            }
+        },
+        {
+            "filename": "skills_crud",
+            "data": {
+                "taxonomy_url": "skills",
+                "type": "Skills"
+            }
+        },
+        {
+            "filename": "titles_crud",
+            "data": {
+                "taxonomy_url": "title",
+                "type": "Titles"
+            }
+        },
+        {
+            "filename": "user_category_crud",
+            "data": {
+                "taxonomy_url": "user-category",
+                "type": "User category"
+            }
+        }
+    ],
+    "setup": [
+        {
+            "filename": "create_test_taxonomy_org_unit",
+            "data": {
+                "taxonomy_url": "organisational-units",
+                "type": "Organisational units",
+                "title": "Finance"
+            }
+        }
+    ]
 }

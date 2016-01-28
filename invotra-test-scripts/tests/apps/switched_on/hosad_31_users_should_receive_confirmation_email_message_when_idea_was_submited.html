@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>hosad_31_users_should_receive_confirmation_email_message_when_idea_was_submited</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_31_users_should_receive_confirmation_email_message_when_idea_was_submited</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>adminPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaemailnotification'+Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!--Given I logged in as "org" user-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Given I am on "Switched On" page-->
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!--When I fill "My idea" in "Idea title" field-->
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;submitted[__idea-title__]&quot;]</td>
+	<td>${title}</td>
+</tr>
+<!--And press "Submit" button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.form-actions input[value=&quot;Submit&quot;]</td>
+	<td></td>
+</tr>
+<!-- - *Verify*: confirmation screen is presented -->
+<tr>
+	<td>verifyText</td>
+	<td>css=p</td>
+	<td>Thank you for submitting this idea.</td>
+</tr>
+<!--When user checks "org@org.com"-->
+<tr>
+	<td>open</td>
+	<td>https://accounts.google.com/AddSession?sacu=1&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;service=mail#identifier</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Email</td>
+	<td>io1test.testing</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Passwd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Passwd</td>
+	<td>2HYts91JJ5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=signIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Then user should receives email with subject "Your idea has been submitted"-->
+<tr>
+	<td>click</td>
+	<td>css=span:contains('Idea submission confirmation [to :${email}]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.a3s</td>
+	<td></td>
+</tr>
+<!--And email text should has: Thank you for submitting this idea.-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Hi ${org}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Thanks for submitting your idea to Switched On.')</td>
+	<td></td>
+</tr>
+<!--And email text should has: Your reference for this idea is-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('A member of our team will look over your idea to check it meets our criteria,')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('as per our guidance and decide which business area(s) need to be involved in')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('the discussion. We will action your idea within 7 days.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('If you have any queries at all, please contact us at')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('SwitchedOn@homeoffice.gsi.gov.uk')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Kind Regards,')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('The Switched On Team')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

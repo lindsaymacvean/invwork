@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://chelsea.invotra.io1test.com" />
+<title>HOINC-136_IB-193</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">HOINC-136_IB-193</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor user'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'organisational user'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Ladies Golf'}</td>
+	<td>topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Learn Golf'}</td>
+	<td>topicUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Secret'}</td>
+	<td>security</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Confidential'}</td>
+	<td>securityUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Data Technology Strand '}</td>
+	<td>relatedContent</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Google'}</td>
+	<td>linkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.google.co.uk'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'BBC'}</td>
+	<td>linkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.bbc.co.uk'}</td>
+	<td>URLUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Corporate Support'}</td>
+	<td>pri_cat</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Audience'}</td>
+	<td>pri_cat_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Finance'}</td>
+	<td>orgUnit</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Marketing'}</td>
+	<td>orgUnitUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Angola'}</td>
+	<td>country</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Argentina'}</td>
+	<td>countryUpdate</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create list-->
+<tr>
+	<td>open</td>
+	<td>/node/add/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>Library</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create page and link list-->
+<tr>
+	<td>open</td>
+	<td>/node/add/page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>Library</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=div.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create related content widget-->
+<tr>
+	<td>setSpeed</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=ipe-toolbar-edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='panels-ipe-regionid-header']/div/div[2]/a[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='panels-ipe-regionid-header']/div/div[2]/a[2]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'Invotra')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Invotra')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Related content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Related content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=modal-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-show-content-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-return</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=panels-ipe-save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Verify user can see list in related content-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<!--Log in as org-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify org user can see list-->
+<tr>
+	<td>open</td>
+	<td>/page/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<!--Log in as webmaster and make list private-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/list/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-invotra-custom-private-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Log in as org-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify org user CANNOT see list-->
+<tr>
+	<td>open</td>
+	<td>/page/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>${title}</td>
+	<td></td>
+</tr>
+<!--Delete page-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/page/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Page ${titleUpdate} has been deleted.</td>
+</tr>
+<!--Delete list-->
+<tr>
+	<td>open</td>
+	<td>/list/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message List ${title} has been deleted.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

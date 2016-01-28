@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSourceWorkflow</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSourceWorkflow</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Topic Test'}</td>
+	<td>topic_test</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Topic Body'}</td>
+	<td>topic_body</td>
+</tr>
+<!--Log in as Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create New topic in forum-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${topic_test}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Show Text Format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${topic_body}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Forum Topic has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=placeholder</td>
+	<td>Topic Test</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Topic Test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page-title</td>
+	<td>Topic Test</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Topic Body</td>
+</tr>
+<!--Update Workflow Unpublished-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Workflow')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Topic Forum Unpublished-->
+<tr>
+	<td>verifyText</td>
+	<td>class=state-name</td>
+	<td>Unpublished</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Current state: Unpublished</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=state</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Topic Test - Workflow</td>
+</tr>
+<!--Update Workflow  Draft-->
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Topic Forum Draft-->
+<tr>
+	<td>verifyText</td>
+	<td>class=state-name</td>
+	<td>Draft</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Current state: Draft</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=state</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Topic Test - Workflow</td>
+</tr>
+</tbody></table>
+</body>
+</html>

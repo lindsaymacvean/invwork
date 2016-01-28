@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://sow10.invotra.io1test.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--TEST webmaster CRUD Organisational units-->
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'organisational-units'</td>
+	<td>TaxonomySection</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>skill</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>location</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>jrole</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>user</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create org unit-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify taxonomy term created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${title}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title}')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(td:contains('${body}'))</td>
+	<td></td>
+</tr>
+<!--create items which should be shown on OU page-->
+<!--create skill term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/skills</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${skill}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${skill}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${skill}')) </td>
+	<td></td>
+</tr>
+<!--create location term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${location}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${location}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${location}')) </td>
+	<td></td>
+</tr>
+<!--create job role-->
+<tr>
+	<td>open</td>
+	<td>/node/add/role</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-title</td>
+	<td>${jrole}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-site-section-und-0-target-id-select-1</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${jrole}</td>
+</tr>
+<!--create org unit parent-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${title}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title}')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(td:contains('${body}'))</td>
+	<td></td>
+</tr>
+<!--create child term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title}child</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selectable:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${title}child.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title}child')) </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(td:contains('${body}'))</td>
+	<td></td>
+</tr>
+<!--create user and tag it with org unit and other created taxonomies-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-mail</td>
+	<td>${user}@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass1</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass2</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created a new user account for ${user}. No e-mail has been sent.')</td>
+	<td></td>
+</tr>
+<!--tag user with taxonomy terms-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix a:contains(Edit profile)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<!--add job role-->
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-job-role-und-0-target-id</td>
+	<td>${jrole}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-field-job-role-und-0-target-id</td>
+	<td>${jrole}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<!--add skill-->
+<tr>
+	<td>click</td>
+	<td>link=Tags</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-skills-und-0-target-id-select-1</td>
+	<td>${skill} (0)</td>
+</tr>
+<!--add org unit-->
+<tr>
+	<td>click</td>
+	<td>link=Targeting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${title}</td>
+</tr>
+<!--add location-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-locations-und-0-target-id-select-1</td>
+	<td>${location}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify updateds-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(The changes have been saved.)</td>
+	<td></td>
+</tr>
+<!--verify elements on org unit page-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#page-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.item-list ul:contains('${title}child')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.pane-title:contains(About)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.pane-title:contains(People in this organisational unit)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-content img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.views-label.views-label-field-job-role:contains(Role)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-content:contains(${jrole})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.views-label.views-label-field-organisational-unit:contains(Department)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-content:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.views-label.views-label-field-locations:contains(Location)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-content:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.views-label.views-label-mail:contains(Email)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-content:contains(${user}@test.com)</td>
+	<td></td>
+</tr>
+<!--verify taxonomy term is displayed on departamental structure page-->
+<tr>
+	<td>open</td>
+	<td>/invotra/people/departmental-structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<!--assert link redirects to OU page-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#page-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<!--verify click at user name navigates to profile-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#page-title</td>
+	<td>${user}</td>
+</tr>
+<!--delete user-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix a:contains(Edit profile)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${user})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.messages.status:contains('${user} has been disabled.')</td>
+	<td></td>
+</tr>
+<!--delete taxonomy terms-->
+<!--deleteorg unit parent-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${title}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${title}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<!--delete skill-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/skills</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${skill}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${skill})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${skill}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/skills</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${skill}')]</td>
+	<td></td>
+</tr>
+<!--delete location-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${location}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${location}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${location}')]</td>
+	<td></td>
+</tr>
+<!--delete job role-->
+<tr>
+	<td>open</td>
+	<td>/job-role/${jrole}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#page-title</td>
+	<td>${jrole}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${jrole})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Job Role ${jrole} has been deleted.')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

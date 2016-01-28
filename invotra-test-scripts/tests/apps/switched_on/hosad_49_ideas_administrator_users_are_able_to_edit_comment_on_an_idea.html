@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ed'}</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_updated'+Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdated</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!-- Given I logged in as "org" user -->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Given I am on "TestIdea" page-->
+<tr>
+	<td>open</td>
+	<td>/idea/testidea</td>
+	<td></td>
+</tr>
+<!-- When I fill "Comment_body" in comment -->
+<tr>
+	<td>click</td>
+	<td>id=wysiwyg-toggle-edit-comment-body-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-comment-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!-- And press "Save" button -->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!-- Then I should see the message "Your comment has been posted." -->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Your comment has been posted.')</td>
+	<td></td>
+</tr>
+<!-- And I should see the text "Comment_body" in "Comments" -->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-name-comment-body:contains(${body})</td>
+	<td></td>
+</tr>
+<!--When I logged in as an user with "Ideas administrator" role-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--And I am on "TestIdea" page-->
+<tr>
+	<td>open</td>
+	<td>/idea/testidea</td>
+	<td></td>
+</tr>
+<!--And click "Edit" button within "Comments"-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.comment-content:has(p:contains('${body}')) a:contains('edit')</td>
+	<td></td>
+</tr>
+<!--And fill "comment_edited" in "comments"-->
+<tr>
+	<td>click</td>
+	<td>id=wysiwyg-toggle-edit-comment-body-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-comment-body-und-0-value</td>
+	<td>${bodyUpdated}</td>
+</tr>
+<!--And press "Save" button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Then I should see the message "'Comment has been updated."-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=div.messages.status:contains('Comment has been updated.')</td>
+	<td></td>
+</tr>
+<!--And I should see "comment_edited" in "Comments"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.comment-content:has(p:contains('${bodyUpdated}'))</td>
+	<td></td>
+</tr>
+<!--And I should not see "comment body" in "Comments"-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=.comment-content:has(p:contains('${body}'))</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://manuals.invotra.io1test.com/" />
+<title>internal_links_stripping</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">internal_links_stripping</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reference</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleM</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>referenceM</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>referenceMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://betademo:nottobeshared@www.preview.alphagov.co.uk/hmrc-internal-manuals'}</td>
+	<td>gov</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'manual'}</td>
+	<td>manual</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.baseUrl</td>
+	<td>baseurl</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create internal manual-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleM}</td>
+</tr>
+<!--- save value of the slug field-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.machine-name-value:contains(${titleM})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.machine-name-value</td>
+	<td>slugU</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${referenceM}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${referenceM})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-und-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-manual-internal-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleM})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Create external manual-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<!--- save value of the slug field-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.machine-name-value:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.machine-name-value</td>
+	<td>slug</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${reference}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${reference})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-und-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-manual-internal-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Create a manual page-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>&lt;h2&gt;Must be stripped&lt;/h2&gt;&nbsp;&nbsp;&lt;p&gt;&lt;a href=&quot;http://lbo.inrev.gov.uk/CTISA/organisation/ctbit/advice_help_how_seek.htm&quot; target=&quot;_blank&quot;&gt;http://lbo.inrev.gov.uk/CTISA/organisation/ctbit/advice_help_how_seek.htm &lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;p&gt;${baseurl}/${manual}/${slugU}&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;http://www.hmrc.active.hmrci/specialist/esc.pdf&quot; target=&quot;_blank&quot;&gt;http://www.hmrc.active.hmrci/specialist/esc.pdf &lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;http://home.inrev.gov.uk/ctmanual/CTM36590.htm&quot; target=&quot;_blank&quot;&gt;http://home.inrev.gov.uk/ctmanual/CTM36590.htm &lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;http://home.active.hmrci/eimanual/EIM31655.htm&quot; target=&quot;_blank&quot;&gt;http://home.active.hmrci/eimanual/EIM31655.htm &lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;http://manuals.hmrcdemo.io1dev.com/invotra/my-newsfeed&quot; target=&quot;_blank&quot;&gt;${baseurl}/invotra/my-newsfeed&lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;div&gt;http://lbo.inrev.gov.uk/CTISA/organisation/ctbit/advice_help_how_seek.htm&lt;/div&gt; &lt;div&gt;http://www.hmrc.active.hmrci/specialist/esc.pdf&lt;/div&gt; &lt;div&gt;http://home.inrev.gov.uk/ctmanual/CTM36590.htm&lt;/div&gt; &lt;div&gt;http://home.active.hmrci/eimanual/EIM31655.htm&lt;/div&gt; &lt;div&gt;${baseurl}/invotra/my-newsfeed&lt;/div&gt; &lt;div&gt;&lt;span style=&quot;line-height: 15.6000003814697px;&quot;&gt;${baseurl}/invotra/my-newsfeed&lt;/span&gt;&nbsp;&nbsp;&lt;/div&gt; &lt;div&gt;&amp;nbsp;&lt;/div&gt; &lt;div&gt;${baseurl}/manual/bim&lt;/div&gt; &lt;div&gt;${baseurl}/manual/bim/bim00500&lt;/div&gt;&nbsp;&nbsp;&lt;h2&gt;Have to remain&lt;/h2&gt;&nbsp;&nbsp;&lt;p&gt;&lt;a href=&quot;https://www.google.com.ua&quot; target=&quot;_blank&quot;&gt;https://www.google.com&lt;/a&gt;&nbsp;&nbsp;&lt;/p&gt; &lt;p&gt;www.google.com&lt;/p&gt; &lt;p&gt;google.com&lt;/p&gt;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${referenceMp}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${referenceMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--Relate to the manual node-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Verify that the second manual is published out-->
+<tr>
+	<td>open</td>
+	<td>${gov}/${slug}/${referenceMp}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=h1:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<!--Verify that the hyperlinks are stripped out, and not published to the live version - as it links to an internal-only page-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=p:contains(${baseurl${manual}/${titleM})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://lbo.inrev.gov.uk/CTISA/organisation/ctbit/advice_help_how_seek.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://www.hmrc.active.hmrci/specialist/esc.pdf&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://home.inrev.gov.uk/ctmanual/CTM36590.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://home.active.hmrci/eimanual/EIM31655.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://manuals.hmrcdemo.io1dev.com/invotra/my-newsfeed&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://lbo.inrev.gov.uk/CTISA/organisation/ctbit/advice_help_how_seek.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://www.hmrc.active.hmrci/specialist/esc.pdf&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://home.inrev.gov.uk/ctmanual/CTM36590.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://home.active.hmrci/eimanual/EIM31655.htm&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;http://manuals.hmrcdemo.io1dev.com/invotra/my-newsfeed&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;${baseurl}invotra/my-newsfeed&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;www.manuals.hmrcdemo.io1dev.com/invotra/my-newsfeed&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href*=&quot;www.manuals.hmrcdemo.io1dev.com/invotra/my-newsfeed&quot;]</td>
+	<td></td>
+</tr>
+<!--Verify that the hyperlink are not stripped out, and not published to the live version - as it links to an internal-only page-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a[href*=&quot;https://www.google.com&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a[href*=&quot;www.google.com&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

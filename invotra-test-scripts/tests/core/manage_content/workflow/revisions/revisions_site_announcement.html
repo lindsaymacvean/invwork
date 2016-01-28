@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://lindsay.invotra.io1test.com" />
+<title>manage-content_clonning</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">manage-content_clonning</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'admin'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'b@dp@55w0rd'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'Site Announcement'</td>
+	<td>ct</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'notice'</td>
+	<td>ct_url_add</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'site-announcement'</td>
+	<td>ct_url_view</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'css=#page-title'</td>
+	<td>title_locator</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'css=.field-item.even p'</td>
+	<td>body_locator</td>
+</tr>
+<!--log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create content item-->
+<tr>
+	<td>open</td>
+	<td>/node/add/${ct_url_add}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>window.CKEDITOR.instances['edit-body-und-0-value'].setData('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>${body_locator}</td>
+	<td>${body}</td>
+</tr>
+<!--update content item and unpublish-->
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>window.CKEDITOR.instances['edit-body-und-0-value'].getData().indexOf('${body}')>-1</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>window.CKEDITOR.instances['edit-body-und-0-value'].setData('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<!--change workflow-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Draft)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=.ajax-progress.ajax-progress-throbber</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--verify items on a node view page are not updated-->
+<tr>
+	<td>assertText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>${body_locator}</td>
+	<td>${body}</td>
+</tr>
+<!--verify new revision has been created-->
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.tabs.secondary.clearfix li a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.secondary.clearfix li a:contains(List all revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.revision-pending.odd td:contains(Unpublished)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.revision-current.published.even td:contains(current revision (published))</td>
+	<td></td>
+</tr>
+<!--verify changes are applied for unpublished revision-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.revision-pending.odd td a:contains(View)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>${body_locator}</td>
+	<td>${body}</td>
+</tr>
+<!--verify you can compare revisions-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.secondary.clearfix li a:contains(List all revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//*[@id='block-system-main']/div/div/table/tbody/tr[4]/td[2]/div</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//*[@id='block-system-main']/div/div/table/tbody/tr[4]/td[4]/div</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<!--verify you can Unpublish current revision from revisions page-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.secondary.clearfix li a:contains(List all revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=revisioning-ux-unpublish</td>
+	<td></td>
+</tr>
+<!--verify unpublished-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.revision-pending.odd td:contains(Unpublished)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.revision-current.published.even td:contains(current revision (published))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Workflow)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.workflow-current-state</td>
+	<td>Current state: Draft</td>
+</tr>
+<!--verify can publish from revisions page-->
+<tr>
+	<td>clickAt</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.tabs.primary.clearfix a:contains(Revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Revisions</td>
+	<td></td>
+</tr>
+<!--verify published-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.revision-current.published.odd td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Workflow)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.workflow-current-state</td>
+	<td>Current state: Published</td>
+</tr>
+<!--verify can delete content from revisions page-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix a:contains(Revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit--4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains('Are you sure you want to delete ${title}?')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verifyDeleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(${ct} ${title} has been deleted.)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/${ct_url_view}/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>Page not found</td>
+</tr>
+</tbody></table>
+</body>
+</html>

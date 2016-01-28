@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSource_AcceptanceComment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSource_AcceptanceComment</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<!--Log In To Webmaster-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to Comment Moderation-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Comment moderation</td>
+	<td></td>
+</tr>
+<!--Approve Org User Comment-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=approve</td>
+	<td></td>
+</tr>
+<!--Verify Comment Has Been Approved-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Comment approved.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Comment moderation</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page-title</td>
+	<td>Comment moderation</td>
+</tr>
+<!--Navigate to Forum Topic-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forum Topic</td>
+	<td></td>
+</tr>
+<!--Verify Comment On Forum-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=pane-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Forum Comment</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>org user</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=comment-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=pane-title</td>
+	<td>Comments</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=pane-title</td>
+	<td>Comments</td>
+</tr>
+</tbody></table>
+</body>
+</html>

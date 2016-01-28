@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://manuals.invotra.io1test.com/" />
+<title>preview_mode_manuals_subpages_integration</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">preview_mode_manuals_subpages_integration</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'title'+Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'group'+Math.random().toString(36).substring(2)}</td>
+	<td>group</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'reference'+Math.random().toString(36).substring(2)}</td>
+	<td>reference</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'referencemp'+Math.random().toString(36).substring(2)}</td>
+	<td>referenceMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'titlemp'+Math.random().toString(36).substring(2)}</td>
+	<td>titleMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'previewer'+Math.random().toString(36).substring(2)}</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://betademo:nottobeshared@www.preview.alphagov.co.uk/hmrc-internal-manuals'}</td>
+	<td>gov</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create user with previewer role-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${previewer}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${previewer}@io1.co</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Previewer)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains(Created a new user account for ${previewer})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/users/${previewer}/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages:contains(The changes have been saved.)</td>
+	<td></td>
+</tr>
+<!--Create a manual-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<!--- save value of the slug field-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.machine-name-value:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.machine-name-value</td>
+	<td>slug</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${reference}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${reference})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-und-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-manual-internal-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Draft)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Create a manual page-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${referenceMp}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Draft)</td>
+	<td></td>
+</tr>
+<!--Relate this manual page to the manual node-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Relate to the manual page node to the subgroup.-->
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-group-und-0-value</td>
+	<td>${group}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//span[contains(text(), '${titleMp}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//span[contains(text(), '${titleMp}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.messages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Login as user with previewer role-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${previewer}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>previewer</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify manual/manual page is not visable-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=a[href$=&quot;/manual/${slug}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=h1:contains(Access denied)</td>
+	<td></td>
+</tr>
+<!--Enable priview mode and assert that nodes are visable-->
+<tr>
+	<td>open</td>
+	<td>/preview-mode/on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a[href$=&quot;/manual/${slug}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a[href$=&quot;/manual/${slug}/${referenceMp}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.subpages-processed a[href$=&quot;/manual/${slug}/${referenceMp}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${titleMp})</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

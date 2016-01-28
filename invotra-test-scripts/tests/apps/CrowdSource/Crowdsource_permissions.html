@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSourceNoneAuthenticUser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSourceNoneAuthenticUser</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user'}</td>
+	<td>orguser_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'orguser'}</td>
+	<td>orguser_p</td>
+</tr>
+<!--Log In as Org User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${orguser_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${orguser_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Try Navagaite to IPE/Branding-->
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<!--Verify IPE not present-->
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Taxonomy section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=invotra-branding-region</td>
+	<td></td>
+</tr>
+<!--Navagaite to home page-->
+<tr>
+	<td>click</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<!--Verify user cannot post content in forum-->
+<tr>
+	<td>verifyText</td>
+	<td>class=forum-node-create-links forum-node-create-links-top</td>
+	<td>You are not allowed to post new content in the forum.</td>
+</tr>
+<tr>
+	<td>verifytextnotpresent</td>
+	<td>New topic</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

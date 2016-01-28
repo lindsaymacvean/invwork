@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://tiko.invotra.io1test.com/" />
+<title>hosad_22_privileged_users_should_be_able_to_publish_circulars</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_22_privileged_users_should_be_able_to_publish_circulars</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ed'}</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<!--Given I logged in as "Editor" user-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/circulars</td>
+	<td></td>
+</tr>
+<!--When I open "Document" create form-->
+<tr>
+	<td>setSpeed</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=a:contains('Add content')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--And click "Publishing options"-->
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<!--Then I should see "Workflow options"-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=div.panel-pane.pane-workflow:contains('Workflow options')</td>
+	<td></td>
+</tr>
+<!--And I should see "Published" option-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=div.panel-pane.pane-workflow label:contains('Published')</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

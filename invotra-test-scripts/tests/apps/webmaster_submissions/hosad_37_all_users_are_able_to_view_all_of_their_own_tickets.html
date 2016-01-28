@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://tiko.invotra.io1test.com" />
+<title>hosad_37_all_users_are_able_to_view_all_of_their_own_tickets</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_37_all_users_are_able_to_view_all_of_their_own_tickets</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'blogger'}</td>
+	<td>blogger</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ed'}</td>
+	<td>ed</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor@editor.com'}</td>
+	<td>emailEditor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdated</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdated</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!--Login as user with Organisational user role-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/support-ticket</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdated}</td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-priority</td>
+	<td>label=standard</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-component-und</td>
+	<td>label=General Home Office content</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-ticket-type-und</td>
+	<td>label=Create new content</td>
+</tr>
+<!--Set "Link"-->
+<tr>
+	<td>type</td>
+	<td>id=edit-field-link-und-0-title</td>
+	<td>google</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-link-und-0-url</td>
+	<td>http://google.com</td>
+</tr>
+<!--Set "User properties"-->
+<tr>
+	<td>type</td>
+	<td>id=edit-field-user-name-und-0-value</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-user-email-und-0-email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-phone-number-und-0-value</td>
+	<td>+1 789 568965</td>
+</tr>
+<!--Save create form-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Horizon content request ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${title}')</td>
+	<td></td>
+</tr>
+<!--Login as another user with Organisational user role-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${blogger}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${blogger}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Open requester's request-->
+<tr>
+	<td>open</td>
+	<td>/horizon-content-request/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('Access denied')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

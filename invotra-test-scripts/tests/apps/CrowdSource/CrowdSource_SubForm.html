@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSource</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSource</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum Test'}</td>
+	<td>forumtest_title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Forum Test'}</td>
+	<td>update_title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum Body'}</td>
+	<td>forumtest_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Forum Body'}</td>
+	<td>update_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum'}</td>
+	<td>forum_tag</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Forum'}</td>
+	<td>update_tag</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Test Discussion'}</td>
+	<td>discussion_topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forums'}</td>
+	<td>discussion_term</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Discussion Forums Body'}</td>
+	<td>discussion_term_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment Test'}</td>
+	<td>test_comment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Comment'}</td>
+	<td>update_comment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Sub Forum Test'}</td>
+	<td>sub_forum_test</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Sub Forum Body'}</td>
+	<td>sub_forum_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Sub Forum Test'}</td>
+	<td>update_sub_forum_test</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Update Sub Forum Body'}</td>
+	<td>update_sub_forum_body</td>
+</tr>
+<!--Log in as Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to Forum Landing page-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forums</td>
+	<td></td>
+</tr>
+<!--Create new term-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${discussion_term}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-description-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${discussion_term_body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Forum term Created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Created new forum Discussion Forums.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Discussion Forums Body</td>
+	<td></td>
+</tr>
+<!--Navegaite to Forum term and add sub forum-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Discussion Forums</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new sub forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${sub_forum_test}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-description-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${sub_forum_body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verfiy Sub Forum-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Created new forum Sub Forum Test.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Sub Forum Body</td>
+	<td></td>
+</tr>
+<!--Update sub forum-->
+<tr>
+	<td>click</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${update_sub_forum_test}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${update_sub_forum_body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify update-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Created new forum Update Sub Forum Test.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Update Sub Forum Body </td>
+	<td></td>
+</tr>
+<!--Delete Sub Forum-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Deletion-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Deleted term Update Sub Forum Test.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forums</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Update Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Update Sub Forum Body</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

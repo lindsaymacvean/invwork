@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://sow10.invotra.io1test.com/" />
+<title>manage-content_cloning_blog-entry</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">manage-content_cloning_blog-entry</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'Note'</td>
+	<td>ct</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'note'</td>
+	<td>ct_url_add</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'note'</td>
+	<td>ct_url_view</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'css=#page-title'</td>
+	<td>title_locator</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'css=.field-item.even p'</td>
+	<td>body_locator</td>
+</tr>
+<!--log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create content item-->
+<tr>
+	<td>open</td>
+	<td>/node/add/${ct_url_add}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>${body_locator}</td>
+	<td>${body}</td>
+</tr>
+<!--update content item and unpublish-->
+<tr>
+	<td>click</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<!--change workflow-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Draft)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=.ajax-progress.ajax-progress-throbber</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--verify items on a node view page are not updated-->
+<tr>
+	<td>assertText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>${body_locator}</td>
+	<td>${body}</td>
+</tr>
+<!--enable preview mode-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.content.clearfix a:contains(Enable preview mode)</td>
+	<td></td>
+</tr>
+<!--verify changes are displayed-->
+<tr>
+	<td>assertText</td>
+	<td>${title_locator}</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>${body_locator}</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<!--disable preview mode-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.content.clearfix a:contains(Disable preview mode)</td>
+	<td></td>
+</tr>
+<!--delete content item-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=List all revisions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.tabs.secondary.clearfix li a:contains(List all revisions)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(Revisions for ${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit-submit--4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(Are you sure you want to delete ${title}?)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(${ct} ${title} has been deleted.)</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

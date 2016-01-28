@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com" />
+<title>list_crude_webmaster</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">list_crude_webmaster</td></tr>
+</thead><tbody>
+<!--TEST Webmaster&admin  My private content note     [Rubens PETROVICH - 06/08/2015]     ~54s-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Link'}</td>
+	<td>TypeOfList</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Home'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of Google'}</td>
+	<td>LinkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.com'}</td>
+	<td>URL</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td class="hmrc">type</td>
+	<td>id=edit-pid</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--List-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>label=Link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.link1.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>Link 1</td>
+</tr>
+<!--Set "List properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-invotra-custom-private-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>storeEval</td>
+	<td>var currentDate = new Date() ; var day = currentDate.getDate() ; if (day &lt; 10) { day = &quot;0&quot; + day } ; var month = currentDate.getMonth() + 1 ; if (month &lt; 10) { month = &quot;0&quot; + month } ; var year = currentDate.getFullYear() ; var hours = currentDate.getHours() ; if (hours &lt; 10) { hours = &quot;0&quot; + hours } ; var min = currentDate.getMinutes() ; if (min &lt; 10) { min = &quot;0&quot; + min } ; curentDate=(day + &quot;/&quot; + month + &quot;/&quot; + year);</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('List ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'Link 1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.link1.com']</td>
+	<td></td>
+</tr>
+<!--Check in My Workspace my private content-->
+<tr>
+	<td>open</td>
+	<td>/invotra/my-workspace/private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(@href, '/list/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2][contains(text(), '${body}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[3][contains(text(), 'List')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[4][contains(text(), 'Published')]</td>
+	<td></td>
+</tr>
+<!--Check The Date-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[5][contains(text(), '${Date}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>list/${title}</td>
+	<td></td>
+</tr>
+
+<!--add one link to the List-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>label=Link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.test2.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-add</td>
+	<td></td>
+</tr>
+<!--Check in My Workspace my private content-->
+<tr>
+	<td>open</td>
+	<td>/invotra/my-workspace/private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td.views-field-title > a:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td.views-field-body > a:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css= td.views-field-term-base-type:contains('List')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td.views-field-sid:contains('Published')</td>
+	<td></td>
+</tr>
+<!--Check The Date-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td.views-field-created:contains('${Date}')</td>
+	<td></td>
+</tr>
+<!--Delete the news of the webmaster-->
+<tr>
+	<td>open</td>
+	<td>list/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('List ${title} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<!--Check in My Workspace my private content if we can see the note-->
+<tr>
+	<td>open</td>
+	<td>/invotra/my-workspace/private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

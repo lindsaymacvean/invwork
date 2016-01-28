@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://vlad.invotra.io1test.com//" />
+<title>news_crud_webmaster</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">news_crud_webmaster</td></tr>
+</thead><tbody>
+<!--TEST Webmaster My favourites     [Rubens PETROVICH - 03/08/2015] -->
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body2</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a news-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--_select site section-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-site-section-und-0-target-id-select-1</td>
+	<td>index=1</td>
+</tr>
+<!--_set workflow Published-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--_mark as newsflash-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Promotion)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-newsflash-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save node-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<!--Add to favourites-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Add to favourites')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Remove from favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Create a second news Item-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title2}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body2}</td>
+</tr>
+<!--_select site section-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-site-section-und-0-target-id-select-1</td>
+	<td>index=1</td>
+</tr>
+<!--_set workflow Published-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Publishing options)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--_mark as newsflash-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Promotion)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-newsflash-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save node-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify content item has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title2} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title2}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.pane-content &gt; h1:contains('${title2}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body2}')</td>
+	<td></td>
+</tr>
+<!--Add to favourites-->
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Add to favourites')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Remove from favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<!--Check if we can see it in the favourites section-->
+<tr>
+	<td>open</td>
+	<td>/list/2-favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#form_id &gt; thead &gt; tr &gt; th</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@href, '/news/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'${title2}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@href, '/news/${title2}')]</td>
+	<td></td>
+</tr>
+<!--Delet the news first News-->
+<tr>
+	<td>open</td>
+	<td>/news/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedIndex</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>1</td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<!--Check if we can see it in the favourites section just the second link-->
+<tr>
+	<td>open</td>
+	<td>/list/2-favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#form_id &gt; thead &gt; tr &gt; th</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(@href, '/news/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'${title2}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@href, '/news/${title2}')]</td>
+	<td></td>
+</tr>
+<!--Remove the seconde news -->
+<tr>
+	<td>open</td>
+	<td>/news/${title2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Remove from favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Check if we can see it in the favourites section juste the seconde-->
+<tr>
+	<td>open</td>
+	<td>/list/2-favourites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(@href, '/news/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title2}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(@href, '/news/${title2}')]</td>
+	<td></td>
+</tr>
+<!--Delet the news seconde News-->
+<tr>
+	<td>open</td>
+	<td>/news/${title2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title2}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title2}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body2}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedIndex</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title2} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title2}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

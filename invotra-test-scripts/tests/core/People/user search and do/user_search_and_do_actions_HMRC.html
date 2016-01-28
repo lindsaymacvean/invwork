@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hmrc.invotra.io1test.com" />
+<title>user_search_and_do_actions_HMRC</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">user_search_and_do_actions_HMRC</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>webmaster_PID</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user1'}</td>
+	<td>org_user_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user'}</td>
+	<td>org_user_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'1'}</td>
+	<td>org_user_PID</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor1'}</td>
+	<td>editor_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor'}</td>
+	<td>editor_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2'}</td>
+	<td>editor_PID</td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${webmaster_PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create Editor-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add person</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>editor@editor.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${editor_p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${editor_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=editor1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td>${editor_PID}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create Org User-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add person</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org_user_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>org@org.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${org_user_p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${org_user_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=org user1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td>${org_user_PID}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to User Search And Do Landing page-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${webmaster_PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<!--Block User-->
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>label=Block user</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;action::user_block_user_action&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Blocked User-->
+<!--Log in as Editor User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${editor_PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Blocked-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=messages error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>The username editor1 has not been activated or is blocked.</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>The username editor1 has not been activated or is blocked.</td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${webmaster_PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate To User Search And Do-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<!--Delete User Using Action-->
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>label=Delete user</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;action::views_bulk_operations_delete_item&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#uniform-edit-views-bulk-operations-0 &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Deleted Users-->
+<tr>
+	<td>verifyText</td>
+	<td>class=placeholder</td>
+	<td>Delete item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=placeholder</td>
+	<td>Delete item</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Performed Delete item on 2 items.</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Performed Delete item on 2 items.</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

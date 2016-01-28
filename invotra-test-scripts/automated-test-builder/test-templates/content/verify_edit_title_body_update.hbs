@@ -4,7 +4,7 @@
 	<td>${title}</td>
 </tr>
 <tr>
-	<td>verifyValue</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
+	<td>verifyEval</td>
+	<td>window.CKEDITOR.instances['edit-body-und-0-value'].getData().indexOf('${body}')>-1</td>
+	<td>true</td>
 </tr>

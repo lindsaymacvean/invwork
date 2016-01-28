@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://vlad.invotra.io1test.com/" />
+<title>vote_crud_admin-webmaster</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">vote_crud_admin-webmaster</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'admin'</td>
+	<td>id2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'b@dp@55w0rd'</td>
+	<td>p2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'Home'</td>
+	<td>section</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-comment-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-newsflash-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>storeEval</td>
+	<td>var currentDate = new Date() ; var day = currentDate.getDate() ; if (day &lt; 10) { day = &quot;0&quot; + day } ; var month = currentDate.getMonth() + 1 ; if (month &lt; 10) { month = &quot;0&quot; + month } ; var year = currentDate.getFullYear() ; var hours = currentDate.getHours() ; if (hours &lt; 10) { hours = &quot;0&quot; + hours } ; var min = currentDate.getMinutes() ; if (min &lt; 10) { min = &quot;0&quot; + min } ; curentDate=(day + &quot;/&quot; + month + &quot;/&quot; + year);</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<!--Login as admin-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p2}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Comment the News of the Webmaster-->
+<tr>
+	<td>open</td>
+	<td>news/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=rate-button-5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Check in My Workspace my comments-->
+<tr>
+	<td>open</td>
+	<td>/invotra/my-workspace/my-votes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[2][contains(text(),'${body}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[3][contains(text(),'News')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[4][contains(text(),'Published')]</td>
+	<td></td>
+</tr>
+<!--Check The Date-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[6][contains(text(),'${Date}')]</td>
+	<td></td>
+</tr>
+<!--Change the vote-->
+<tr>
+	<td>click</td>
+	<td>id=rate-button-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Delete and check the vote the news of the webmaster-->
+<tr>
+	<td>open</td>
+	<td>news/${title}</td>
+	<td></td>
+</tr>
+<!--Check if we can see the vote-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Voting)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/table[2]/tbody/tr[2]/td[contains(text(), '1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/table[2]/tbody/tr[1]/td[contains(text(), '0')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/table[2]/tbody/tr[3]/td[contains(text(), '0')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/table[2]/tbody/tr[4]/td[contains(text(), '0')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/table[2]/tbody/tr[5]/td[contains(text(), '0')]</td>
+	<td></td>
+</tr>
+<!--Delete content item-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

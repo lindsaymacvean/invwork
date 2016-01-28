@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hmrc.invotra.io1test.com/users" />
+<title>authenticated_user_HMRC.html</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">authenticated_user_HMRC.html</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>PID</td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Open And Verify Webmaster Toolbar-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=invotra-branding-region</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=manage-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=taxonomy-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=manage-content</td>
+	<td>Manage content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=settings</td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=reports</td>
+	<td>Reports</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=taxonomy-section</td>
+	<td>Taxonomy section</td>
+</tr>
+<!--Verify User Toolbar-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=toolbar-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=add-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=my-workspace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=my-newsfeed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=add-content</td>
+	<td>Add content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=my-workspace</td>
+	<td>My workspace</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=my-newsfeed</td>
+	<td>My newsfeed</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=people</td>
+	<td>People</td>
+</tr>
+<!--Navigate To Manage Content and Verify-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first leaf nth-1</td>
+	<td>Archived content</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Comment moderation</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Content by section</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf nth-4</td>
+	<td>Inappropriate comments</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf nth-1</td>
+	<td>Media</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Needs review</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Reviewed</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Site annoucements</td>
+</tr>
+<!--Navigate To Settings And Verify-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=first expanded nth-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Branding</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Settings</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>WYSIWYG Buttons</td>
+</tr>
+<!--Navigate To Reports And Verify-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=reports</td>
+	<td>Reports</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=reports</td>
+	<td>Reports</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=first leaf nth-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=leaf nth-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=leaf nth-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Action downloads</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Action exit</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Visitor Locations </td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Visitors</td>
+</tr>
+<!--Navigate To Taxonomy Section And Verify-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=taxonomy-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=taxonomy-section</td>
+	<td>Taxonomy section</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=leaf nth-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=first leaf nth-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Event statuses </td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Organisational units</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>General Topics</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Countries</td>
+</tr>
+<!--Navigate To Homepage and Verify IPE-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=ipe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>IPE</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=show-ipe</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

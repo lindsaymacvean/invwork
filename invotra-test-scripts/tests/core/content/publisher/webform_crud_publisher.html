@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com" />
+<title>chelsea_publisher_are_able_to_creat_a_webform</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">webform_crud_publisher</td></tr>
+</thead><tbody>
+<!--TEST publisher CRUD a WEB FORM     [Rubens PETROVICH - 24/06/2015]-->
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Home'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Invotra logo'}</td>
+	<td>img</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Courses'}</td>
+	<td>PrimaryCategory1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'England'}</td>
+	<td>PrimaryCategory2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Isle of Wight'}</td>
+	<td>PrimaryCategory3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Scotland'}</td>
+	<td>PrimaryCategory2Update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Fife'}</td>
+	<td>PrimaryCategory3Update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of Google'}</td>
+	<td>LinkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of GoogleUpdate'}</td>
+	<td>LinkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.com'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.fr'}</td>
+	<td>URLUpdate</td>
+</tr>
+<!--Login as publisher-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Test if the user is created or not-->
+<tr>
+	<td>storeElementPresent</td>
+	<td>css=div.messages.error</td>
+	<td>test</td>
+</tr>
+<!--If it work, we go to the label JUM-->
+<tr>
+	<td>gotoIf</td>
+	<td>!storedVars['test']</td>
+	<td>JUMP</td>
+</tr>
+<!--We need to creat the id, so we log in with the webmaster-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--We create the id-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${id}@${id}.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-roles-change-8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-roles-change-11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--We add the user like group member of Home-->
+<tr>
+	<td>open</td>
+	<td>/section/home/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Login as org-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Here the id is created-->
+<tr>
+	<td>label</td>
+	<td>JUMP</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/webform</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--add picture-->
+<tr>
+	<td>click</td>
+	<td>id=edit-field-image-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>label=${PrimaryCategory2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>label=${PrimaryCategory3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created (Webform)-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Webform ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${title}')</td>
+	<td></td>
+</tr>
+<!--Set a new components-->
+<tr>
+	<td>type</td>
+	<td>id=edit-add-name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-add-mandatory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-add-type</td>
+	<td>label=Textfield</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-add-add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-form-key</td>
+	<td>TestKey</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-actions-submit</td>
+	<td></td>
+</tr>
+<!--Verify the new components-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('New component test added.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td:contains('test')</td>
+	<td></td>
+</tr>
+<!--Check the fields of the Webform of the publisher-->
+<tr>
+	<td>open</td>
+	<td>webform/${title}</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-item.even &gt; a@href</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even &gt; a:contains('${LinkTitle}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=label:contains('test')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--edit the components for Update and check the fields-->
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Webform')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-name</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-form-key</td>
+	<td>TestKey</td>
+</tr>
+<!--Update-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>testUpdate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-form-key</td>
+	<td>TestKeyUpdate</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-actions-submit</td>
+	<td></td>
+</tr>
+<!--Verify the new components is updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Component testUpdate updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td:contains('testUpdate')</td>
+	<td></td>
+</tr>
+<!--Check the fields of the Webform of the publisher-->
+<tr>
+	<td>open</td>
+	<td>webform/${title}</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-item.even &gt; a@href</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even &gt; a:contains('${LinkTitle}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=label:contains('testUpdate')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Verify the fiels for Update-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>${PrimaryCategory2}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>${PrimaryCategory3}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Update-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>label=${PrimaryCategory2Update}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>label=${PrimaryCategory3Update}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Webform ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=h2.pane-title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-item.even &gt; a@href</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even &gt; a:contains('${LinkTitleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=label:contains('testUpdate')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Check the field & Delete the news of the publisher-->
+<!--Verify the fiels-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>${PrimaryCategory2Update}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>${PrimaryCategory3Update}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Webform ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

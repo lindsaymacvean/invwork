@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>hosad_133_switched_on_team_is_notified_when_an_idea_is_updated</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_133_switched_on_team_is_notified_when_an_idea_is_updated</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>organisational user</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>adminPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideastagsnotification'+Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!--Given user with "admin" role on the "Ideas configure" page-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${admin}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${adminPass}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/admin/config/ideas-mail-config</td>
+	<td></td>
+</tr>
+<!--Given he fills "Email address" with "io1test@gmail.com"-->
+<tr>
+	<td>click</td>
+	<td>link=Show Update ideas mails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-invotra-ideas-update-address</td>
+	<td>io1test@gmail.com</td>
+</tr>
+<!--Given clicks "Save configuration"-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Given user has submitted an idea with "ideastagsnotification" title-->
+<!-- - As authorized user open Switched on landing page -->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!-- - Fill required fields -->
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;submitted[__idea-title__]&quot;]</td>
+	<td>${title}</td>
+</tr>
+<!-- - Follow submit idea action -->
+<!-- - Submit form -->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.form-actions input[value=&quot;Submit&quot;]</td>
+	<td></td>
+</tr>
+<!-- - *Verify*: confirmation screen is presented -->
+<tr>
+	<td>verifyText</td>
+	<td>css=p</td>
+	<td>Thank you for submitting this idea.</td>
+</tr>
+<!--When user with "Ideas administrator" role open an idea page-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/idea/${title}</td>
+	<td></td>
+</tr>
+<!--And clicks "Edit" button-->
+<tr>
+	<td>clickAtAndWait</td>
+	<td>css=.tabs a:contains('Edit')</td>
+	<td></td>
+</tr>
+<!--And select "Open" from "Idea status"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-idea-status-und</td>
+	<td>label=Open</td>
+</tr>
+<!--And select "Seccessful" from "Idea resolution "-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=select:contains('assigned')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=select[name=&quot;field_idea_resolution[und][]&quot;]</td>
+	<td>label=assigned</td>
+</tr>
+<!--And fill "webmaster" in Idea assignee-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-idea-assignee-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-idea-assignee-und-0-target-id</td>
+	<td>webmaster</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-idea-assignee-und-0-target-id</td>
+	<td>webmaster</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[contains(text(), 'webmaster')]</td>
+	<td>\13</td>
+</tr>
+<!--And clicks "Save" button-->
+<tr>
+	<td>click</td>
+	<td>css= input[value=&quot;Save&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css= input[value=&quot;Save&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages:contains('Idea ${title} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.field-type-invotra-ideas-reference</td>
+	<td>ideareference</td>
+</tr>
+<!--Then the email notification should be sent to "io1test@gmail.com"-->
+<!--Check email-->
+<tr>
+	<td>open</td>
+	<td>https://accounts.google.com/AddSession?sacu=1&amp;continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&amp;service=mail#identifier</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Email</td>
+	<td>io1test.testing</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=Passwd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Passwd</td>
+	<td>2HYts91JJ5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=signIn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gbqfq</td>
+	<td>${ideareference}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gbqfb</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span:contains('${ideareference} - Your idea has been updated [to :org@org.com]')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.a3s</td>
+	<td></td>
+</tr>
+<!--Verify text-->
+<!--And the email subject should reads "The following field(s) have been changed:  Idea assignee changed from "not specified" to "publisher" Idea resolution changed from "Rejected" to "Successful" Idea status changed from "Submitted" to "Open""-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('The following field(s) have been changed:')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Idea assignee changed from &quot;not specified&quot; to &quot;webmaster&quot;')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Idea resolution changed from &quot;not specified&quot; to &quot;Successful&quot;')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.a3s:contains('Idea status changed from &quot;Submitted&quot; to &quot;Open&quot;')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

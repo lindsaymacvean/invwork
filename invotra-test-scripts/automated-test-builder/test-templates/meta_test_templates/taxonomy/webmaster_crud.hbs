@@ -1,0 +1,85 @@
+---
+title: taxonomies
+url: lindsay
+---
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://{{ url }}.invotra.io1test.com" />
+<title>{{ title }} {{{this.type}}} CRUD</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">{{ title }} {{{this.type}}} CRUD</td></tr>
+</thead><tbody>
+<!--Author CRUD test -->
+		{{> variables }}
+		{{> logout }}
+		{{> login_webmaster }}
+		<tr>
+			<td>open</td>
+			<td>/invotra/taxonomy-section/{{{this.taxonomy_url}}}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>clickAndWait</td>
+			<td>link=Add term</td>
+			<td></td>
+		</tr>
+		{{> taxonomy_create}}
+		<tr>
+			<td>verifyText</td>
+			<td>css=em.placeholder</td>
+			<td>${title}</td>
+		</tr>
+		{{!-- Have removed checking the individual node because most go to solr search - will check with Billy
+			{{> break}}
+			<tr>
+				<td>clickAndWait</td>
+				<td>link=${title}</td>
+				<td></td>
+			</tr>
+			{{> taxonomy_verify}}
+			<tr>
+				<td>clickAndWait</td>
+				<td>link=Edit</td>
+				<td>Edit</td>
+			</tr>
+		--}}
+		{{!-- This reads/verifies the new taxonomy and goes back the edit page in one command --}}
+		<tr>
+			<td>clickAndWait</td>
+			<td>xpath=//span[@class='term-name']/a[contains(text(), '${title}')]/../../../td[2]/p[contains(text(), '${body}')]/../../td[4]/a[contains(text(),'edit')]</td>
+			<td></td>
+		</tr>
+
+		{{> taxonomy_update}}
+		{{!-- not doing this at the moment because of solr search issue above
+			{{> break}}
+			<tr>
+				<td>open</td>
+				<td>/{{{this.type}}}/${titleUpdate}</td>
+				<td></td>
+			</tr>
+			{{> taxonomy_verify_update}}
+		--}}
+		<tr>
+			<td>verifyElementPresent</td>
+			<td>xpath=//span[@class='term-name']/a[contains(text(), '${titleUpdate}')]/../../../td[2]/p[contains(text(), '${bodyUpdate}')]</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>clickAndWait</td>
+			<td>xpath=//span[@class='term-name']/a[contains(text(), '${titleUpdate}')]/../../../td[2]/p[contains(text(), '${bodyUpdate}')]/../../td[4]/a[contains(text(),'edit')]</td>
+			<td></td>
+		</tr>
+		{{> taxonomy_delete}}
+		{{> logout }}
+</tbody></table>
+</body>
+</html>

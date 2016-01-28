@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://sow10.invotra.io1test.com" />
+<title>groups_people</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">groups_people</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor user'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Ladies Golf'}</td>
+	<td>topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Learn Golf'}</td>
+	<td>topicUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Secret'}</td>
+	<td>security</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Confidential'}</td>
+	<td>securityUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'History of Golf'}</td>
+	<td>relatedContent</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Google'}</td>
+	<td>linkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.google.co.uk'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'BBC'}</td>
+	<td>linkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.bbc.co.uk'}</td>
+	<td>URLUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Digital'}</td>
+	<td>pri_cat</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Equipment'}</td>
+	<td>pri_cat_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Finance'}</td>
+	<td>orgUnit</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Marketing'}</td>
+	<td>orgUnitUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Angola'}</td>
+	<td>country</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Argentina'}</td>
+	<td>countryUpdate</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Add node-->
+<tr>
+	<td>open</td>
+	<td>/node/add/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${orgUnit}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-enable-member-profiles-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-enable-member-profiles-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node -->
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Group ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='panels-ipe-paneid-new-38']/div[2]/div/div/div/div/div[2]/span[3]/span</td>
+	<td>${webmaster}<br />posted ${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.views-field.views-field-message &gt; span.field-content</td>
+	<td>${webmaster}<br /> became a member of the group</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-content &gt; a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=a.dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Wiki</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Manage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Group info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Group info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${pri_cat}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${orgUnit}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Tasks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Calendar</td>
+	<td></td>
+</tr>
+<!--Add user to group-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/group/${title}</td>
+	<td></td>
+</tr>
+<!--Verify notification-->
+<tr>
+	<td>verifyText</td>
+	<td>css=span.views-field.views-field-message &gt; span.field-content</td>
+	<td>${editor}<br /> became a member of the group</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<!--Add node and assign to group-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${security}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//*[@class=&quot;ms-elem-selectable&quot;][contains(text(),'${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been created-->
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${titleUpdate} has been created.')</td>
+	<td></td>
+</tr>
+<!--Verify group has been notified-->
+<tr>
+	<td>open</td>
+	<td>/group/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent </td>
+	<td>xpath=//*[@class=&quot;field-content&quot;][contains(text(),'posted')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=td.views-field.views-field-type</td>
+	<td>News</td>
+</tr>
+<!--Delete group-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

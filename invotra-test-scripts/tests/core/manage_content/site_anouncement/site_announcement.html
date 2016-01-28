@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com" />
+<title>chelsea_webmaster_are_able_to_creat_a_site-announcement</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">site-announcement_crud_webmaster</td></tr>
+</thead><tbody>
+<!--TEST Webmaster CRUD a SITE ANNOUNCEMENT     [Rubens PETROVICH - 20/07/2015]   ~42s-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Invotra logo'}</td>
+	<td>img</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td class="hmrc">type</td>
+	<td>id=edit-pid</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/notice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--add picture-->
+<tr>
+	<td>click</td>
+	<td>id=edit-field-image-und-0-select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>check</td>
+	<td>id=edit-field-current-announcement-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>storeEval</td>
+	<td>var currentDate = new Date() ; var day = currentDate.getDate() ; if (day &lt; 10) { day = &quot;0&quot; + day } ; var month = currentDate.getMonth() + 1 ; if (month &lt; 10) { month = &quot;0&quot; + month } ; var year = currentDate.getFullYear() ; var hours = currentDate.getHours() ; if (hours &lt; 10) { hours = &quot;0&quot; + hours } ; var min = currentDate.getMinutes() ; if (min &lt; 10) { min = &quot;0&quot; + min } ; curentDate=(day + &quot;/&quot; + month + &quot;/&quot; + year);</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Site Announcement ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Check the Announcement-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${title}')]</td>
+	<td></td>
+</tr>
+<!--Verify If we can see it-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<!--Check the Announcement in the Manage Content-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/site-announcements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(@href, '/site-announcement/${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2][contains(text(), '${body}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[3][contains(text(), 'Current announcement')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[4][contains(text(), '${Date}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[5]/a[contains(text(), '${id}')]</td>
+	<td></td>
+</tr>
+<!--Update the news of the webmaster-->
+<tr>
+	<td>open</td>
+	<td>/site-announcement/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Update-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Site Announcement ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Check the Announcement Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<!--Verify If we can see it-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<!--Check the Announcement in the Manage Content Update-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/site-announcements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2][contains(text(), '${bodyUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[3][contains(text(), 'Current announcement')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[4][contains(text(), '${Date}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[5]/a[contains(text(), '${id}')]</td>
+	<td></td>
+</tr>
+<!--Unchek the current announcement the Site Anouncement-->
+<tr>
+	<td>open</td>
+	<td>/site-announcement/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Update-->
+<tr>
+	<td>uncheck</td>
+	<td>id=edit-field-current-announcement-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Site Announcement ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Check the Announcement Updated-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<!--Verify If we can see it-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyNotVisible</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=show-branding</td>
+	<td></td>
+</tr>
+<!--Check the Announcement in the Manage Content Update-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/site-announcements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2][contains(text(), '${bodyUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[3][contains(text(), 'Previous announcement')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[4][contains(text(), '${Date}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[5]/a[contains(text(), '${id}')]</td>
+	<td></td>
+</tr>
+<!--Delete the news of the webmaster-->
+<tr>
+	<td>open</td>
+	<td>site-announcement/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Site Announcement ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span/span/a[contains(text(), '${titleUpdate}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='announcement-box']/div/div/div/div/span[2]/span/a[contains(@href, '/site-announcement/${titleUpdate}')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

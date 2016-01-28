@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://vlad.invotra.io1test.com" />
+<title>people_directory</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">people_directory</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>org_unit</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>location</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>jrole</td>
+</tr>
+<!--log in-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create location term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${location}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${location}</td>
+	<td></td>
+</tr>
+<!--create org unit-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/organisational-units</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${org_unit}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.term:contains(${org_unit})</td>
+	<td></td>
+</tr>
+<!--create user and tag it with created terms-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-mail</td>
+	<td>${user}@test.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass1</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass2</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created a new user account for ${user}. No e-mail has been sent.')</td>
+	<td></td>
+</tr>
+<!--tag user with taxonomy terms-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix a:contains(Edit profile)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<!--add org unit-->
+<tr>
+	<td>click</td>
+	<td>link=Targeting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${org_unit}</td>
+</tr>
+<!--add location-->
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-locations-und-0-target-id-select-1</td>
+	<td>${location}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(The changes have been saved.)</td>
+	<td></td>
+</tr>
+<!--go to people directory and verify filters work-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=People directory</td>
+	<td></td>
+</tr>
+<!--filter by department-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.pane-title:contains(Organisational unit)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.pane-title:contains(Location)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.facetapi-inactive.facetapi-checkbox-processed:contains(${org_unit})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${user})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-field-organisational-unit(Department)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${org_unit})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-field-locations:contains(Location)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-mail(Email)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${user}@test.com)</td>
+	<td></td>
+</tr>
+<!--filter by Location-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=People directory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.facetapi-inactive.facetapi-checkbox-processed:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${user})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-field-organisational-unit(Department)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${org_unit})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-field-locations:contains(Location)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.views-label.views-label-solr-prototype-users-mail(Email)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.field-content a:contains(${user}@test.com)</td>
+	<td></td>
+</tr>
+<!--delete location-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${location}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${location})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${location}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${location}')]</td>
+	<td></td>
+</tr>
+<!--delete org unit-->
+<tr>
+	<td>open</td>
+	<td>/organisational-units/${org_unit}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#page-title:contains(${org_unit})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Delete)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${org_unit} - Delete)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify term has been deleted-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Deleted term ${org_unit}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/organisational-units</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${org_unit}')]</td>
+	<td></td>
+</tr>
+<!--delete user-->
+<tr>
+	<td>open</td>
+	<td>/users/${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix a:contains(Edit profile)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${user})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-user-cancel-method label:contains(Delete the account and its content)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.messages.status:contains('${user} has been deleted.')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

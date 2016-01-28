@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com" />
+<title>chelsea_1_webmaster_are_able_to_creat_a_news</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">news_crud_webmaster</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>new Date().getTime()</td>
+	<td>StartTime</td>
+</tr>
+<!--TEST Webmaster&admin CRUD a My Comment BLOG     [Rubens PETROVICH - 03/08/2015]     ~62-->
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'admin'</td>
+	<td>id2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'b@dp@55w0rd'</td>
+	<td>p2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;Subject comment 1 admin&quot;</td>
+	<td>subject1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;Comment 1 I am the admin...blablala&quot;</td>
+	<td>comment1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;I flag Reason Flag&quot;</td>
+	<td>ReasonFlag</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'Newsroom'</td>
+	<td>section</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td class="hmrc">type</td>
+	<td>id=edit-pid</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/news</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-comment-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-newsflash-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.pane-content &gt; h1:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<!--Chek the comment are close-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div.panel-pane.pane-node-comment-form</td>
+	<td></td>
+</tr>
+<!--Open the comment -->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-comment-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-node-comment-form</td>
+	<td></td>
+</tr>
+<!--Login as admin-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p2}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Comment the News of the Webmaster-->
+<tr>
+	<td>open</td>
+	<td>news/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;comment_body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-subject</td>
+	<td>${subject1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-comment-body-und-0-value</td>
+	<td>${comment1}</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>var currentDate = new Date() ; var day = currentDate.getDate() ; if (day &lt; 10) { day = &quot;0&quot; + day } ; var month = currentDate.getMonth() + 1 ; if (month &lt; 10) { month = &quot;0&quot; + month } ; var year = currentDate.getFullYear() ; var hours = currentDate.getHours() ; if (hours &lt; 10) { hours = &quot;0&quot; + hours } ; var min = currentDate.getMinutes() ; if (min &lt; 10) { min = &quot;0&quot; + min } ; curentDate=(day + &quot;/&quot; + month + &quot;/&quot; + year + &quot; - &quot; + hours + &quot;:&quot; + min) ;</td>
+	<td>DateComment1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--check the comment as been created-->
+<tr>
+	<td>verifyText</td>
+	<td>//h3/a</td>
+	<td>${subject1}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='panels-ipe-paneid-new-149']/div[2]/div/div/article/div/div/div/div/div/p</td>
+	<td>${comment1}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=time &gt; span:contains('${DateComment1}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=a.username:contains('${id2}')</td>
+	<td></td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td class="hmrc">type</td>
+	<td>id=edit-pid</td>
+	<td>2014</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--signal to the comment of the autor-->
+<tr>
+	<td>open</td>
+	<td>news/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flag as inappropriate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_reason_for_flagging[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-reason-for-flagging-und-0-value</td>
+	<td>${ReasonFlag}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('The comment ${subject1} has been flagged and will be reviewed')</td>
+	<td></td>
+</tr>
+<!--comment moderation-->
+<tr>
+	<td>open</td>
+	<td>/invotra/manage-content/comments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td/a[2][contains(text(),'${title}')] 	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a[contains(text(),'${subject1}')] 	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[3]/p[contains(text(),'${comment1}')] 	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${comment1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[4][contains(text(),'${DateComment1}')] 	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='block-system-main']/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[5]/a[contains(text(),'${id2}')] 	</td>
+	<td></td>
+</tr>
+<!--Delete the news of the webmaster-->
+<tr>
+	<td>open</td>
+	<td>news/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-newsflash-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('News ${title} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>new Date().getTime()</td>
+	<td>EndTime</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>(${EndTime} - ${StartTime})/1000</td>
+	<td>ExecutionTime</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${ExecutionTime} seconds 	</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

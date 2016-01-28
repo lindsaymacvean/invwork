@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>hosad_48_user_profile_information_should_be_pre_populated</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_48_user_profile_information_should_be_pre_populated</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'organisational user'}</td>
+	<td>organisational</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>adminPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'organisational@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'testidea'}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!--As user with administrator role is logged on the site-->
+<!-- *Given* user with the following exists on the site:-->
+<!--- username: organisational user-->
+<!--- First name: organisational-->
+<!--- Surname: Board-->
+<!--- email: organisational@org.com-->
+<!--- Your business area (Organisational unit) : Default OU-->
+<!--*Given* I logged in as "organisational user" user-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${organisational}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${organisational}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--*When* I open Switched On landing page-->
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!--*Then* I should see "organisational* in "First name" field-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.webform-component--first-name:has(input[value=&quot;OrgForename&quot;])</td>
+	<td></td>
+</tr>
+<!--*And* I should see "Board* in "Surname" field-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.webform-component--surname:has(input[value=&quot;UserForename&quot;])</td>
+	<td></td>
+</tr>
+<!--*And* I should see "organisational@org.com* in "Email " field-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.webform-component--user-email:has(input[value=&quot;${email}&quot;])</td>
+	<td></td>
+</tr>
+<!--*And* I should see "Default OU* in "Your business area" field-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.webform-component--your-business-area:has(input[value=&quot;Default OU&quot;])</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

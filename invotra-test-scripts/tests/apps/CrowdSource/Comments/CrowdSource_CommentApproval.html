@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://max.invotra.io1test.com/user" />
+<title>CrowdSource_AnonymousUser.html</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSource_AnonymousUser.html</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user'}</td>
+	<td>orguser_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'orguser'}</td>
+	<td>orguser_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum Comment'}</td>
+	<td>forum_comment</td>
+</tr>
+<tr>
+	<td>Store</td>
+	<td>javascript{'Forum Topic'}</td>
+	<td>forum_topic</td>
+</tr>
+<!--Log In As Org user-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${orguser_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${orguser_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to forum Topic-->
+<tr>
+	<td>type</td>
+	<td>id=edit-keyword</td>
+	<td>${forum_topic}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Forum Topic')])[3]</td>
+	<td></td>
+</tr>
+<!--Comment On Forum Topic at /forum-topic/forum-topic-0-->
+<tr>
+	<td>select</td>
+	<td>id=edit-comment-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-comment-body-und-0-value</td>
+	<td>${forum_comment}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Comment-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Your comment has been queued for review by site administrators and will be published after approval.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Forum Topic</td>
+</tr>
+</tbody></table>
+</body>
+</html>

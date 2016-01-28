@@ -3,13 +3,8 @@
 	<td>id=edit-title</td>
 	<td>${title}</td>
 </tr>
-<tr>
-	<td>select</td>
-	<td>id=edit-body-und-0-format--2</td>
-	<td>Plain text</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=edit-body-und-0-value</td>
-	<td>${body}</td>
+s<tr>
+	<td>getEval</td>
+	<td>window.CKEDITOR.instances['edit-body-und-0-value'].setData('${body}')</td>
+	<td></td>
 </tr>

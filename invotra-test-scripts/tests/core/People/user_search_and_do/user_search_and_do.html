@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://vlad.invotra.io1test.com" />
+<title>user_search_and_do</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">user_search_and_do</td></tr>
+</thead><tbody>
+<!--User search and do Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user test'}</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'orgusertest@test.com'}</td>
+	<td>mail</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create test user via user search and do-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=//*[@class=&quot;entity-create-link&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${mail}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify user created-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Created a new user account for org user test. No e-mail has been sent.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-username</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit-search-and-do-users</td>
+	<td></td>
+</tr>
+<!--Delegate role-->
+<tr>
+	<td>type</td>
+	<td>css=#edit-username</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit-search-and-do-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>Delegate roles</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-role-change-6</td>
+	<td>Add this role</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-actions-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-actions #edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Verified delegated role-->
+<tr>
+	<td>open</td>
+	<td>/invotra/people/user-search-and-do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${test}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-6</td>
+	<td>on</td>
+</tr>
+<!--Block user-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-username</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit-search-and-do-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>Block user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//form[@id='views-form-search-and-do-users-panel-pane-1']/div/div[2]/ul/li</td>
+	<td>org user test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-actions #edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Verified blocked-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Performed Block user on 1 item.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-keyword</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=${test}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/people/user-search-and-do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${test}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-status-0</td>
+	<td>on</td>
+</tr>
+<!--Unblock user -->
+<tr>
+	<td>click</td>
+	<td>id=edit-status-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass2</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verified unblocked-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message The changes have been saved.</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-status-1</td>
+	<td>on</td>
+</tr>
+<!--Delete user-->
+<tr>
+	<td>open</td>
+	<td>/invotra/people/user-search-and-do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-username</td>
+	<td>${test}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit-search-and-do-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>Delete user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//form[@id='views-form-search-and-do-users-panel-pane-1']/div/div[2]/ul/li</td>
+	<td>org user test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-actions #edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<!--Verify user deleted-->
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Performed Delete item on 1 item.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

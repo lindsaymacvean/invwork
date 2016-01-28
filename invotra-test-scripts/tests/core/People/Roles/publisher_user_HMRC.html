@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hmrc.invotra.io1test.com/users" />
+<title>publisher_user_HMRC.html</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">publisher_user_HMRC.html</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>PID</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher1'}</td>
+	<td>publisher_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>publisher_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'4'}</td>
+	<td>publisher_PID</td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${PID}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create Author User-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add person</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${publisher_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>publisher@publisher.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${publisher_p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${publisher_p}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-roles-change-11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=author1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td>${publisher_PID}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Log In As Publisher-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${publisher_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${publisher_p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${publisher_PID}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Publisher Toolbar Manage content-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first leaf nth-1</td>
+	<td>Archived content</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Content by section</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Media</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Media</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Needs review</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Reviewed</td>
+</tr>
+<!--Verify User Toolbar-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=toolbar-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=first expanded add-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=add-content</td>
+	<td>Add content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=my-workspace</td>
+	<td>My workspace</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=my-newsfeed</td>
+	<td>My newsfeed</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=people</td>
+	<td>People</td>
+</tr>
+<!--Verify Content Permissions-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Blog entry</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Blog entry</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Discussion</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>List</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Note</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Question</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>News</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>News</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Page</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Event</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Gallery</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>External Resource</td>
+</tr>
+<!--Verify My Workspace Permissions-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My workspace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first leaf menu-mlid-1394</td>
+	<td>My blog</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1392</td>
+	<td>My comments</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1386</td>
+	<td>My drafts</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1388</td>
+	<td>My favourites</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1400</td>
+	<td>My lists</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1401</td>
+	<td>My locked documents</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1411</td>
+	<td>My posts</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1412</td>
+	<td>My private content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=last leaf menu-mlid-1413</td>
+	<td>My votes</td>
+</tr>
+<!--Verify My Newsfeed Permissions-->
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My newsfeed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first last leaf nth-1</td>
+	<td>Following</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=first last leaf nth-1</td>
+	<td>Following</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=my-newsfeed</td>
+	<td></td>
+</tr>
+<!--Verify People Permissions-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first leaf menu-mlid-1409</td>
+	<td>Org chart</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=last leaf menu-mlid-1408</td>
+	<td>People directory</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=first leaf menu-mlid-1409</td>
+	<td>Org chart</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=last leaf menu-mlid-1408</td>
+	<td>People directory</td>
+</tr>
+</tbody></table>
+</body>
+</html>

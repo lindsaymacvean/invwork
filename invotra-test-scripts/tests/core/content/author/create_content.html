@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://nicky.invotra.io1test.com/" />
+<title>create_content</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_content</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'author'}</td>
+	<td>author_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'author'}</td>
+	<td>author_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Ladies Golf'}</td>
+	<td>topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Learn Golf'}</td>
+	<td>topic_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'History Of Golf'}</td>
+	<td>related_content</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>related_content_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Angola'}</td>
+	<td>country</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Argentina'}</td>
+	<td>country_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Austria'}</td>
+	<td>location</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Belgium'}</td>
+	<td>location_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Digital'}</td>
+	<td>pri_cat</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Equipment'}</td>
+	<td>pri_cat_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Grade 1'}</td>
+	<td>grade</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Grade 2'}</td>
+	<td>grade_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Finance'}</td>
+	<td>org_unit</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Marketing'}</td>
+	<td>org_unit_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'topic1'}</td>
+	<td>discussion_topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'topic2'}</td>
+	<td>discussion_topic_update</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create User ${author}-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${mail}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${author}</td>
+</tr>
+<!--Verify Status Active-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-status-1</td>
+	<td></td>
+</tr>
+<!--Verify Roles-->
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-3</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-6</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-7</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-9</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-11</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-12</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-13</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-15</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-roles-change-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created a new user account for ${author}. No e-mail has been sent.')</td>
+	<td></td>
+</tr>
+<!--Add author to site section-->
+<tr>
+	<td>open</td>
+	<td>/section/home/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('${author} has been added to the group Home.')</td>
+	<td></td>
+</tr>
+<!--Log in as author-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create general topics-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/general-topics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${topic}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${topic}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${topic_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${topic_update}')</td>
+	<td></td>
+</tr>
+<!--create countries-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/countries</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${country}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${country_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${country_update}')</td>
+	<td></td>
+</tr>
+<!--create locations-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/locations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${location}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${location}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${location_update}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>index=1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${location_update}')</td>
+	<td></td>
+</tr>
+<!--create primary categories-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/primary-categories</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${pri_cat}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${pri_cat_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${pri_cat_update}')</td>
+	<td></td>
+</tr>
+<!--create role grades-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/role-grades</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${grade}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${grade}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${grade_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${grade_update}')</td>
+	<td></td>
+</tr>
+<!--create org units-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/organisational-units</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${org_unit}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${org_unit}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${org_unit_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${org_unit_update}')</td>
+	<td></td>
+</tr>
+<!--create discussion topics-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/discussion-topics</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${discussion_topic}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${discussion_topic}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${discussion_topic_update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Created new term ${discussion_topic_update}')</td>
+	<td></td>
+</tr>
+<!--create site section-->
+<tr>
+	<td>open</td>
+	<td>invotra/settings/configuration/site-sections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name--2</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(Created new term ${section}.)</td>
+	<td></td>
+</tr>
+<!--create page-->
+<tr>
+	<td>open</td>
+	<td>/node/add/page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-title</td>
+	<td>${related_content}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>body text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains(Page ${related_content} has been created.)</td>
+	<td></td>
+</tr>
+<!--Set workflow for policy to immediate publish-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-policy-workflow</td>
+	<td>label=Immediate Publish</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

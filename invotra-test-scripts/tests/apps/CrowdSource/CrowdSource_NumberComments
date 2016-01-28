@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://github.com/" />
+<title>CrowdSource_NumberComments</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CrowdSource_NumberComments</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Sub Forum Test'}</td>
+	<td>sub_forum</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Sub Forum Body'}</td>
+	<td>sub_forum_body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Sub Forum Topic'}</td>
+	<td>sub_forum_topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Forum Comment'}</td>
+	<td>comment_forum</td>
+</tr>
+<!--Log In  As Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to General Discussion-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forums</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=General discussion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add new sub forum</td>
+	<td></td>
+</tr>
+<!--Create Sub Forum-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${sub_forum}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-description-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${sub_forum_body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate To Sub Forum and Add New Topic-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${sub_forum_topic}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Show Text Format</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${sub_forum_body}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Add Comment-->
+<tr>
+	<td>select</td>
+	<td>id=edit-comment-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;plain_text&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-comment-body-und-0-value</td>
+	<td>${comment_forum}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate To General Discussion-Sub Forum-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Forums</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=General discussion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub Forum Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub Forum Topic</td>
+	<td></td>
+</tr>
+<!--Verify Forum Comment-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=comment-content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Forum Comment</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=username</td>
+	<td>webmaster</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=username</td>
+	<td>webmaster</td>
+</tr>
+</tbody></table>
+</body>
+</html>

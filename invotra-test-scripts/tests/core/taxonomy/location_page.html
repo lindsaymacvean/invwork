@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://lindsay.invotra.io1test.com" />
+<title>location_page</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">location_page</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'locations'</td>
+	<td>TaxonomySection</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title_site</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title_building</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>title_floor</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>addr3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>postcode</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>phone</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'test@test.com'</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>region</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>country</td>
+</tr>
+<!--log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create country-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/countries</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${country}</td>
+	<td></td>
+</tr>
+<!--create region-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/regions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>class=add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${region}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=${region}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${region}</td>
+	<td></td>
+</tr>
+<!--create site location-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title_site}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td>${addr1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td>${addr2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td>${addr3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td>${postcode}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-phone-no-und-0-value</td>
+	<td>${phone}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-email-und-0-email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-address-und-0-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-region-und</td>
+	<td>${region}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-field-location-address-und-0-field-region-und</td>
+	<td>${region}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause </td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${title_site}</td>
+	<td></td>
+</tr>
+<!--create building location-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title_building}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-one-und-0-value</td>
+	<td>${addr1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-two-und-0-value</td>
+	<td>${addr2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-address-line-three-und-0-value</td>
+	<td>${addr3}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-location-address-und-0-field-location-postcode-und-0-value</td>
+	<td>${postcode}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-phone-no-und-0-value</td>
+	<td>${phone}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-email-und-0-email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-address-und-0-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-location-address-und-0-field-region-und</td>
+	<td>${region}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-field-location-address-und-0-field-region-und</td>
+	<td>${region}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause </td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${title_site}</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title_site}')) </td>
+	<td></td>
+</tr>
+<!--create floor location-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=option[value=&quot;building&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${title_floor}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=edit-field-location-type-und</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;description[format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-description-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-location-type-und</td>
+	<td>Floor</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=tr:has(a:contains('${title_floor}')) </td>
+	<td></td>
+</tr>
+<!--verifyElements present on location site page-->
+<tr>
+	<td>open</td>
+	<td>/locations/${title_site}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title_site}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${country})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${postcode}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${phone}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${country}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.taxonomy-term-description p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--verifyElements present on location building-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title_building}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${title_building}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${country})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${addr1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${addr2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${addr3}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${postcode}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${phone}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${country}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title_building}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(Address)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr1})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${addr3})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${postcode})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.panel-pane.pane-entity-field.pane-taxonomy-term-field-location-address:contains(${country})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>goBackAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--verifyElements present on location floor-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${title_floor}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title_floor}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=View Building plan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View Building plan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${title_building}')</td>
+	<td></td>
+</tr>
+<!--delete taxonomy term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${title_site}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${title_site})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_site}')]</td>
+	<td></td>
+</tr>
+<!--delete taxonomy term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${title_building}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${title_building})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_building}')]</td>
+	<td></td>
+</tr>
+<!--delete taxonomy term-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr:has(a:contains('${title_floor}')) a:contains('delete')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_floor}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify terms has been deleted-->
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_site}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_building}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(text(),'${title_floor}')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

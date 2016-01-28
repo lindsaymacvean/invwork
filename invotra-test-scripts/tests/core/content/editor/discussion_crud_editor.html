@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://andrew.invotra.io1test.com" />
+<title>question_crud_org</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">question_crud_org</td></tr>
+</thead><tbody>
+<!--Discussion CRUD test - Andrew Doyle 24/09/15-->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor user'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Ladies Golf'}</td>
+	<td>topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Learn Golf'}</td>
+	<td>topicUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Secret'}</td>
+	<td>security</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Confidential'}</td>
+	<td>securityUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Home'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'History of Golf'}</td>
+	<td>relatedContent</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Google'}</td>
+	<td>linkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.google.co.uk'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'BBC'}</td>
+	<td>linkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://www.bbc.co.uk'}</td>
+	<td>URLUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Digital'}</td>
+	<td>pri_cat</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Equipment'}</td>
+	<td>pri_cat_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Finance'}</td>
+	<td>orgUnit</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Marketing'}</td>
+	<td>orgUnitUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Angola'}</td>
+	<td>country</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Argentina'}</td>
+	<td>countryUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Golf'}</td>
+	<td>discTopic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Football'}</td>
+	<td>discTopicUpdate</td>
+</tr>
+<!--Log in as editor-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Add node-->
+<tr>
+	<td>open</td>
+	<td>/node/add/post</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-tags-und</td>
+	<td>${topic}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${security}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${orgUnit}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-type-und</td>
+	<td>Content</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${linkTitle}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${relatedContent}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${relatedContent}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=div.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-topic-und</td>
+	<td>${discTopic}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been created-->
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Discussion ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${topic}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${security}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${orgUnit}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${pri_cat}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${discTopic}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=History Of Golf</td>
+	<td>History Of Golf</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${linkTitle}</td>
+	<td></td>
+</tr>
+<!--Edit node and verify values-->
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-tags-und</td>
+	<td>${topic}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${linkTitle}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${security}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-topic-und</td>
+	<td>${discTopic}</td>
+</tr>
+<!--Update node-->
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-tags-und</td>
+	<td>${topicUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${securityUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>900</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-1-target-id-select-1</td>
+	<td>${pri_cat_update}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-country-und</td>
+	<td>${countryUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${orgUnitUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-related-content-fields-und-0-field-related-content-type-und</td>
+	<td>label=Site section</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-content-fields-und-0-field-site-section-und-0-target-id</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${linkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-topic-und</td>
+	<td>${discTopicUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-workflow-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<!--Save node-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify node has been updated-->
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Discussion ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even &gt; p</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${topicUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${securityUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${orgUnitUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${pri_cat}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${pri_cat_update}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${discTopicUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=${section}</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=${linkTitleUpdate}</td>
+	<td>${linkTitleUpdate}</td>
+</tr>
+<!--Log in as webmaster -->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/discussion/${titleUpdate}</td>
+	<td></td>
+</tr>
+<!--Edit and verify fields-->
+<tr>
+	<td>click</td>
+	<td>id=tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-tags-und</td>
+	<td>${topicUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${linkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-1-target-id-select-1</td>
+	<td>${pri_cat_update}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-country-und</td>
+	<td>${countryUpdate}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${securityUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-topic-und</td>
+	<td>${discTopicUpdate}</td>
+</tr>
+<!--Delete node-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Discussion ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://nicky.invotra.io1test.com" />
+<title>chelsea_publisher_are_able_to_creat_a_policy</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">policy_crud_publisher</td></tr>
+</thead><tbody>
+<!--TEST publisher CRUD a POLICY     [Rubens PETROVICH - 24/06/2015] -->
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>publisher_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>publisher_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Ladies Golf'}</td>
+	<td>topic</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Learn Golf'}</td>
+	<td>topic_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of Google'}</td>
+	<td>LinkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of GoogleUpdate'}</td>
+	<td>LinkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.com'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.fr'}</td>
+	<td>URLUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Protect'}</td>
+	<td>security</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Secret'}</td>
+	<td>security_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'History Of Golf'}</td>
+	<td>related_content</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Library'}</td>
+	<td>related_content_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Angola'}</td>
+	<td>country</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Argentina'}</td>
+	<td>country_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Austria'}</td>
+	<td>location</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Belgium'}</td>
+	<td>location_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Digital'}</td>
+	<td>pri_cat</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Equipment'}</td>
+	<td>pri_cat_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Grade 1'}</td>
+	<td>grade</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Grade 2'}</td>
+	<td>grade_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Finance'}</td>
+	<td>org_unit</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Marketing'}</td>
+	<td>org_unit_update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Constituent'}</td>
+	<td>policy_type</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Distributive'}</td>
+	<td>policy_type_update</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Add user to site section-->
+<tr>
+	<td>open</td>
+	<td>/section/library/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${publisher_id}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--verify added-->
+<tr>
+	<td>open</td>
+	<td>/section/library/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.admin-list dt a:contains(People)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${editor_id}</td>
+	<td></td>
+</tr>
+<!--Login as author-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${publisher_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${publisher_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create policy-->
+<tr>
+	<td>open</td>
+	<td>/node/add/policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-type-und</td>
+	<td>label=${policy_type}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.form-item.form-type-radio.form-item-workflow label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--set advanced options-->
+<tr>
+	<td>click</td>
+	<td>css=.edit-mode-switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Organisational)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Links)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-external-links-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-external-links-und-0-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-related-content-type-und</td>
+	<td>Content</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${related_content}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-related-content-und-0-target-id</td>
+	<td>${related_content}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Tags)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Targeting)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${org_unit}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selectable:contains('${location}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selectable:contains('${grade}')</td>
+	<td></td>
+</tr>
+<!--Save agreement-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify policy has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Policy ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${LinkTitle}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=.panel-pane.pane-entity-field.pane-node-field-related-external-links a@href</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.field-item.even a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/div/div/div[1]/div/div/a[contains(text(), '${related_content}')]</td>
+	<td></td>
+</tr>
+<!--Update policy-->
+<tr>
+	<td>open</td>
+	<td>policy/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify values-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=#edit-field-type-und</td>
+	<td>${policy_type}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<!--verify advanced options-->
+<tr>
+	<td>click</td>
+	<td>css=.edit-mode-switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Organisational)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Links)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-related-external-links-und-0-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-related-external-links-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Tags)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-country-und</td>
+	<td>${country}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Targeting)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${org_unit}</td>
+</tr>
+<!--Update-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<!--update advanced options-->
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Organisational)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat_update}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Links)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-external-links-und-0-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-external-links-und-0-title</td>
+	<td>${LinkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-related-content-type-und</td>
+	<td>Site section</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-site-section-und-0-target-id</td>
+	<td>${related_content_update}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-field-related-content-fields-und-0-field-site-section-und-0-target-id</td>
+	<td>${related_content_update}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Tags)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-country-und</td>
+	<td>${country_update}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Targeting)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${org_unit_update}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selectable:contains('${location_update}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='ms-edit-field-grade-und']/div[2]/ul/li</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ms-elem-selectable:contains('${grade_update}')</td>
+	<td></td>
+</tr>
+<!--Save policy-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify policy has been Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Policy ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=${LinkTitleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=.panel-pane.pane-entity-field.pane-node-field-related-external-links a@href</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.field-item.even a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='block-system-main']/div/div/div/div/div[2]/div[2]/div[contains(text(), '${related_content_update}')]</td>
+	<td></td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Delete policy-->
+<tr>
+	<td>open</td>
+	<td>policy/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify values-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=#edit-field-type-und</td>
+	<td>${policy_type_update}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<!--verify advanced options-->
+<tr>
+	<td>click</td>
+	<td>css=.edit-mode-switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Organisational)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${pri_cat_update}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Links)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-related-external-links-und-0-title</td>
+	<td>${LinkTitleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-field-related-external-links-und-0-url</td>
+	<td>${URLUpdate}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Tags)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-country-und</td>
+	<td>${country_update}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.ui-tabs-nav.ui-helper-reset a:contains(Targeting)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>css=#edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>${org_unit_update}</td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Policy ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

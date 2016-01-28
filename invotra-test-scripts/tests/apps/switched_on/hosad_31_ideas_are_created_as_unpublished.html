@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>hosad_31_ideas_are_created_as_unpublished</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_31_ideas_are_created_as_unpublished</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>adminPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideastagsnotification'+Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!--Given an authenticated user on the Idea webform-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!--When he fills required fields-->
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;submitted[__idea-title__]&quot;]</td>
+	<td>${title}</td>
+</tr>
+<!--And submits the form-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.form-actions input[value=&quot;Submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then confirmation message should be presented to the user-->
+<tr>
+	<td>verifyText</td>
+	<td>css=p</td>
+	<td>Thank you for submitting this idea.</td>
+</tr>
+<!--When "editorial team" user open this idea "workflow" page-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/idea/${title}/workflow</td>
+	<td></td>
+</tr>
+<!--Then the workflow should be set to "unpublished"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.workflow-current-state:contains('Current state: Unpublished')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

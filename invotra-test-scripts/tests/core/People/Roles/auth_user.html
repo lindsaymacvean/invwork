@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://sow10.invotra.io1test.com" />
+<title>auth_user</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">auth_user</td></tr>
+</thead><tbody>
+<!--People Authenticated User Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'authenticated user'}</td>
+	<td>auth</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<!--Log in as auth user-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${auth}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${auth}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify user can see toolbar-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=toolbar-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Add content</td>
+	<td>Add content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=My workspace</td>
+	<td>My workspace</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=My newsfeed</td>
+	<td>My newsfeed</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=People</td>
+	<td>People</td>
+</tr>
+<!--Verify user cannot see webmaster toolbar-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Manage content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Taxonomy section</td>
+	<td></td>
+</tr>
+<!--Verify add content-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Create Blog entry</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<!--Verify my workspace-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My workspace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>My Workspace</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=first leaf menu-mlid-1394</td>
+	<td>My blog</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1392</td>
+	<td>My comments</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1386</td>
+	<td>My drafts</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1388</td>
+	<td>My favourites</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1401</td>
+	<td>My locked documents</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1411</td>
+	<td>My posts</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=leaf menu-mlid-1412</td>
+	<td>My private content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=last leaf menu-mlid-1413</td>
+	<td>My votes</td>
+</tr>
+<!--Verify my newsfeed-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My newsfeed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>My newsfeed</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Content</td>
+	<td>Content</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Profiles</td>
+	<td>Profiles</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>xpath=(//a[contains(text(),'People')])[3]</td>
+	<td>People</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Teamspaces</td>
+	<td>Teamspaces</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Votes</td>
+	<td>Votes</td>
+</tr>
+<!--Verify people-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>People</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=li.leaf.menu-mlid-1409 &gt; a</td>
+	<td>Org chart</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>xpath=(//a[contains(text(),'People directory')])[2]</td>
+	<td>People directory</td>
+</tr>
+<!--Verify user is denied access for webmaster toolbar-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Access denied</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.pane-content &gt; p</td>
+	<td>You are not authorized to access this page.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Access denied</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.pane-content &gt; p</td>
+	<td>You are not authorized to access this page.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/taxonomy-section</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Access denied</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.pane-content &gt; p</td>
+	<td>You are not authorized to access this page.</td>
+</tr>
+<!--Verify user cannot access admin-->
+<tr>
+	<td>open</td>
+	<td>/admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>Access denied</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.pane-content &gt; p</td>
+	<td>You are not authorized to access this page.</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

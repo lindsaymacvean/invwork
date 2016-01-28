@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com" />
+<title>event-1_crud_author</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">event-1_crud_author</td></tr>
+</thead><tbody>
+<!--Event CRUD test  [Rubens PETROVICH - 10/07/2015] [Andrew Doyle - 25/09/2015]-->
+<tr>
+	<td>store</td>
+	<td>javascript{'author'}</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'author'}</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'01/01/3000'}</td>
+	<td>EndDate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'13:00'}</td>
+	<td>EndTime</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'agenda'}</td>
+	<td>agenda</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'42'}</td>
+	<td>nbplace</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Contact Name'}</td>
+	<td>contact</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Duration'}</td>
+	<td>duration</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Open'}</td>
+	<td>status</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'OtherInfo'}</td>
+	<td>OI</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Pre-Requuisites'}</td>
+	<td>PresR</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'51'}</td>
+	<td>price</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Target audience'}</td>
+	<td>TA</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Aims'}</td>
+	<td>aims</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Venue'}</td>
+	<td>venue</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Home'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Invotra logo'}</td>
+	<td>img</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Confidential'}</td>
+	<td>security</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Digital'}</td>
+	<td>PrimaryCategory1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'England'}</td>
+	<td>PrimaryCategory2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Isle of Wight'}</td>
+	<td>PrimaryCategory3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'External links'}</td>
+	<td>LinkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.com'}</td>
+	<td>URL</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create User ${author}-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${mail}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${author}</td>
+</tr>
+<!--Verify Status Active-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-status-1</td>
+	<td></td>
+</tr>
+<!--Verify Roles-->
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-3</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-6</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-7</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-9</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-11</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-12</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-13</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-15</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-roles-change-4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created a new user account for ${author}. No e-mail has been sent.')</td>
+	<td></td>
+</tr>
+<!--Add author to site section-->
+<tr>
+	<td>open</td>
+	<td>/section/home/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('${author} has been added to the group Home.')</td>
+	<td></td>
+</tr>
+<!--Log in as author-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${author}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a Event-->
+<tr>
+	<td>open</td>
+	<td>/node/add/event</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-date-and-time-und-0-value2-datepicker-popup-0</td>
+	<td>${EndDate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-date-and-time-und-0-value2-timeEntry-popup-1</td>
+	<td>${EndTime}</td>
+</tr>
+<!--add picture-->
+<!--<tr> 	<td>click</td> 	<td>id=edit-field-image-und-0-select</td> 	<td></td> </tr> <tr> 	<td>waitForElementPresent</td> 	<td>link=Library</td> 	<td></td> </tr> <tr> 	<td>click</td> 	<td>link=Library</td> 	<td></td> </tr> <tr> 	<td>pause</td> 	<td>1000</td> 	<td></td> </tr> <tr> 	<td>click</td> 	<td>css=img[alt=&quot;${img}&quot;]</td> 	<td></td> </tr> <tr> 	<td>click</td> 	<td>link=Submit</td> 	<td></td> </tr>-->
+<!--Set "Date and time"-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_agenda[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_other_information[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_pre_requisites[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_target_audience[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_aims[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-agenda-und-0-value</td>
+	<td>${agenda}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-number-of-places-und-0-value</td>
+	<td>${nbplace}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-events-status-und</td>
+	<td>${status}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-contact-name-und-0-value</td>
+	<td>${contact}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-duration-und-0-value</td>
+	<td>${duration}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-online-booking-form-und-0-title</td>
+	<td>title Online Booking from</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-online-booking-form-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-other-information-und-0-value</td>
+	<td>${OI}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pre-requisites-und-0-value</td>
+	<td>${PresR}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-price-und-0-value</td>
+	<td>${price}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-target-audience-und-0-value</td>
+	<td>${TA}</td>
+</tr>
+<!--Set fields-->
+<tr>
+	<td>click</td>
+	<td>id=edit-field-agenda-und-0-format--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-other-information-und-0-format--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-pre-requisites-und-0-format--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-target-audience-und-0-format--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>label=${security}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=Digital</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-country-und</td>
+	<td>label=Angola</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;49&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save event-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify event has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Event ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.pane-content &gt; h1:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-body:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-pre-requisites:contains('${PresR}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-target-audience:contains('${TA}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-agenda:contains('${agenda}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-other-information:contains('${OI}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-duration:contains('${duration}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.event-price:contains('${price}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=div.field-item.even &gt; a @href</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even &gt; a:contains('${LinkTitle}')</td>
+	<td></td>
+</tr>
+<!--Update event-->
+<tr>
+	<td>open</td>
+	<td>event/${title}/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify fields-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-date-and-time-und-0-value2-datepicker-popup-0</td>
+	<td>${EndDate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-date-and-time-und-0-value2-timeEntry-popup-1</td>
+	<td>${EndTime}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-agenda-und-0-value</td>
+	<td>${agenda}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-number-of-places-und-0-value</td>
+	<td>${nbplace}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-events-status-und</td>
+	<td>${status}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-online-booking-form-und-0-title</td>
+	<td>title Online Booking from</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-online-booking-form-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-contact-name-und-0-value</td>
+	<td>${contact}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-duration-und-0-value</td>
+	<td>${duration}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-other-information-und-0-value</td>
+	<td>${OI}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-pre-requisites-und-0-value</td>
+	<td>${PresR}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-price-und-0-value</td>
+	<td>${price}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-target-audience-und-0-value</td>
+	<td>${TA}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=img[alt=&quot;${img}&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>Digital</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${security}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-workflow-scheduled-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Update In the next test-->
+<!--Update the Event-->
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-date-and-time-und-0-value2-datepicker-popup-0</td>
+	<td>${EndDate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-date-and-time-und-0-value2-timeEntry-popup-1</td>
+	<td>${EndTime}</td>
+</tr>
+<!--Set "Date and time" Updated-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_agenda[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_other_information[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_pre_requisites[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_target_audience[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;field_aims[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-agenda-und-0-value</td>
+	<td>${agenda}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-number-of-places-und-0-value</td>
+	<td>${nbplace}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-events-status-und</td>
+	<td>${status}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-contact-name-und-0-value</td>
+	<td>${contact}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-duration-und-0-value</td>
+	<td>${duration}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-online-booking-form-und-0-title</td>
+	<td>title Online Booking from</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-online-booking-form-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-other-information-und-0-value</td>
+	<td>${OI}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pre-requisites-und-0-value</td>
+	<td>${PresR}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-price-und-0-value</td>
+	<td>${price}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-target-audience-und-0-value</td>
+	<td>${TA}</td>
+</tr>
+<!--Set advanced properties-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>label=${security}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-country-und</td>
+	<td>label=Argentina</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Check if we can delete or not the event-->
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Event ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.pane-content &gt; h1:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=p</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-pre-requisites:contains('${PresR}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-target-audience:contains('${TA}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-agenda:contains('${agenda}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-other-information:contains('${OI}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-duration:contains('${duration}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.event-price</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.panel-pane.pane-entity-field.pane-node-field-contact-name:contains('${contact}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=div.field-item.even &gt; a@href</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even &gt; a:contains('${LinkTitle}')</td>
+	<td></td>
+</tr>
+<!--Check the field and Delete the event of the author by the webmaster-->
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/event/${title}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fields-->
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-date-and-time-und-0-value2-datepicker-popup-0</td>
+	<td>${EndDate}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-date-and-time-und-0-value2-timeEntry-popup-1</td>
+	<td>${EndTime}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-agenda-und-0-value</td>
+	<td>${agenda}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-number-of-places-und-0-value</td>
+	<td>${nbplace}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-events-status-und</td>
+	<td>${status}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-online-booking-form-und-0-title</td>
+	<td>title Online Booking from</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-online-booking-form-und-0-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-contact-name-und-0-value</td>
+	<td>${contact}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-duration-und-0-value</td>
+	<td>${duration}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-other-information-und-0-value</td>
+	<td>${OI}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-pre-requisites-und-0-value</td>
+	<td>${PresR}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-price-und-0-value</td>
+	<td>${price}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-target-audience-und-0-value</td>
+	<td>${TA}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>${section}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-security-classification-und</td>
+	<td>${security}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=edit-field-country-und</td>
+	<td>Argentina</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-title</td>
+	<td>${LinkTitle}</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-related-external-links-und-0-invotra-field-value-url</td>
+	<td>${URL}</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-workflow-scheduled-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--We delete the event-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Event ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

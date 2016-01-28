@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://vlad.invotra.io1test.com/" />
+<title>user_search_and_do_Landing_page_HMRC</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">user_search_and_do_Landing_page_HMRC</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<!--Log in as Webmaster User-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Navigate to User Search And Do Landing page-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<!--Verify User Search And Do Landing Page-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-operation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=edit-submit-search-and-do-users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=edit-submit--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=page-title</td>
+	<td>User search and do</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=page-title</td>
+	<td>User search and do</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.pane-title:contains(Search)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.pane-title:contains(Do)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=fieldset-legend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>class=fieldset-legend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>class=entity-create-link</td>
+	<td>Add person</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>class=entity-create-link</td>
+	<td>Add person</td>
+</tr>
+</tbody></table>
+</body>
+</html>

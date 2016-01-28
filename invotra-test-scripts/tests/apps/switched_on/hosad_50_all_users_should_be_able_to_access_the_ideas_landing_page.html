@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>hosad_50_all_users_should_be_able_to_access_the_ideas_landing_page</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">hosad_50_all_users_should_be_able_to_access_the_ideas_landing_page</td></tr>
+</thead><tbody>
+<!--Given I am anonymous user-->
+<!--When I open "Switched On" landing page-->
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!--Then I should see "Search an idea"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#invotra-configurable-search-widget-form #edit-keywords</td>
+	<td></td>
+</tr>
+<!--And I should see "TestIdea" within "Successful Ideas"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.view-display-id-successful_ideas_pane .views-field-title</td>
+	<td></td>
+</tr>
+<!--And I should see "TextIdea" within "Featured ideas"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.view-display-id-featured_ideas_pane .views-field-title</td>
+	<td></td>
+</tr>
+<!--And I should see "Contact team" link-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.view-og-ideas-admin-list a:contains('Contact team')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

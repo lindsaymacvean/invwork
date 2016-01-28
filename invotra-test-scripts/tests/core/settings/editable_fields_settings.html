@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://hmrclive.invotra.io1test.com" />
+<title>editable_fields_settings</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">editable_fields_settings</td></tr>
+</thead><tbody>
+<!--Settings: Editable Fields Andrew Doyle-->
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'editor user'}</td>
+	<td>editor</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>desc</td>
+</tr>
+<!--Log in as admin and verify product option is on-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${admin}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${pass}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/admin/config/system/product-options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-product-options-invotra-editable-fields</td>
+	<td>on</td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Open editable fields-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/invotra_editable_fields</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=edit-settings-user-user-roles-webmaster</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-settings-user-user-description</td>
+	<td>${desc}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-field-forename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-field-surname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-save-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Settings was saved.</td>
+</tr>
+<!--Verify webmaster can edit disabled fields-->
+<tr>
+	<td>open</td>
+	<td>/users/editor-user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>xpath=//*[@id=&quot;edit-name&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>xpath=//*[@id=&quot;edit-field-forename-und-0-value&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>xpath=//*[@id=&quot;edit-field-surname-und-0-value&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<!--Log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${editor}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify editor cannot edit disabled fields-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>xpath=//*[@id=&quot;edit-name&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>xpath=//*[@id=&quot;edit-field-forename-und-0-value&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>xpath=//*[@id=&quot;edit-field-surname-und-0-value&quot;][contains(@disabled,'disabled')]</td>
+	<td></td>
+</tr>
+<!--Log in as admin and turn off disabled fields-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${admin}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${pass}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-field-forename</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-settings-user-user-hide-field-surname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-save-all</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Settings was saved.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

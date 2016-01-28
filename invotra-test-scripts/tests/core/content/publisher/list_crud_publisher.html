@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://jonnie.invotra.io1test.com/" />
+<title>chelsea_publisher_are_able_to_creat_a_list</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">list_crud_publisher</td></tr>
+</thead><tbody>
+<!--TEST publisher CRUD a LIST     [Rubens PETROVICH - 24/06/2015]-->
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'publisher'}</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>bodyUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Link'}</td>
+	<td>TypeOfList</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Home'}</td>
+	<td>section</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Courses'}</td>
+	<td>PrimaryCategory1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'England'}</td>
+	<td>PrimaryCategory2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Isle of Wight'}</td>
+	<td>PrimaryCategory3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Scotland'}</td>
+	<td>PrimaryCategory2Update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Fife'}</td>
+	<td>PrimaryCategory3Update</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of Google'}</td>
+	<td>LinkTitle</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Links of GoogleUpdate'}</td>
+	<td>LinkTitleUpdate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.com'}</td>
+	<td>URL</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'http://www.google.fr'}</td>
+	<td>URLUpdate</td>
+</tr>
+<!--Login as publisher-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Test if the user is created or not-->
+<tr>
+	<td>storeElementPresent</td>
+	<td>css=div.messages.error</td>
+	<td>test</td>
+</tr>
+<!--If it work, we go to the label JUM-->
+<tr>
+	<td>gotoIf</td>
+	<td>!storedVars['test']</td>
+	<td>JUMP</td>
+</tr>
+<!--We need to creat the id, so we log in with the webmaster-->
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--We create the id-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${id}@${id}.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-roles-change-8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-roles-change-11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--We add the user like group member of Home-->
+<tr>
+	<td>open</td>
+	<td>/section/home/group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Login as org-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Here the id is created-->
+<tr>
+	<td>label</td>
+	<td>JUMP</td>
+	<td></td>
+</tr>
+<!--Create a request-->
+<tr>
+	<td>open</td>
+	<td>/node/add/list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<!--List-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>label=Link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.link1.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>Link 1</td>
+</tr>
+<!--Set "Ticket properties"-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-site-section-und-0-target-id-select-1</td>
+	<td>label=${section}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>label=${PrimaryCategory2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>label=${PrimaryCategory3}</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Save create the request-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('List ${title} has been created.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'Link 1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.link1.com']</td>
+	<td></td>
+</tr>
+<!--add one link to the List-->
+<tr>
+	<td>select</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>label=Link</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;link&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.test2.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-add</td>
+	<td></td>
+</tr>
+<!--Verify we added one links-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'Link 1')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.link1.com']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'test2')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.test2.com']</td>
+	<td></td>
+</tr>
+<!--Update the news of the publisher-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${title}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${body}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.link1.com</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>Link 1</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-list-collection-und-1-field-list-type-und</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-1-field-link-und-0-url</td>
+	<td>http://www.test2.com</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-1-field-title-und-0-value</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>${PrimaryCategory2}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>${PrimaryCategory3}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Update-->
+<tr>
+	<td>select</td>
+	<td>css=select[name=&quot;body[und][0][format]&quot;]</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${bodyUpdate}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.link1Updated.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>Link 1Updated</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-1-field-link-und-0-url</td>
+	<td>http://www.test2Updated.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-list-collection-und-1-field-title-und-0-value</td>
+	<td>test2Updated</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>label=${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>label=${PrimaryCategory2Update}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>750</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-primary-category-und-0-target-id-select-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>label=${PrimaryCategory3Update}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify request has been Updated-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('List ${titleUpdate} has been updated.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=h2.pane-title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.field-item.even:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'Link 1Updated')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.link1Updated.com']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(text(),'test2Updated')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@href='http://www.test2Updated.com']</td>
+	<td></td>
+</tr>
+<!--Check the field & Delete the news of the publisher-->
+<tr>
+	<td>open</td>
+	<td>list/${titleUpdate}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<!--Verify the fiels-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=input#edit-title.form-text.required</td>
+	<td>${titleUpdate}</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.form-textarea-wrapper.resizable.textarea-processed.resizable-textarea:contains('${bodyUpdate}')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-list-collection-und-0-field-list-type-und</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-0-field-link-und-0-url</td>
+	<td>http://www.link1Updated.com</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-0-field-title-und-0-value</td>
+	<td>Link 1Updated</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-list-collection-und-1-field-list-type-und</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-1-field-link-und-0-url</td>
+	<td>http://www.test2Updated.com</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-field-list-collection-und-1-field-title-und-0-value</td>
+	<td>test2Updated</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-1</td>
+	<td>${PrimaryCategory1}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-2</td>
+	<td>${PrimaryCategory2Update}</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>id=edit-field-primary-category-und-0-target-id-select-3</td>
+	<td>${PrimaryCategory3Update}</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-workflow-14</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>id=edit-field-featured-item-und</td>
+	<td></td>
+</tr>
+<!--Delete-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('List ${titleUpdate} has been deleted.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=title:contains('${titleUpdate}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

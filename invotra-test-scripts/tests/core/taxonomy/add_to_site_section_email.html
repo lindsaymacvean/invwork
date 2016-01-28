@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://chelsea.invotra.io1test.com" />
+<title>add_to_site_section_email</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">add_to_site_section_email</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'site-sections'</td>
+	<td>TaxonomySection</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>title1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>forename</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>surname</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'io1test.testing@gmail.com'</td>
+	<td>eid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2HYts91JJ5'</td>
+	<td>ep</td>
+</tr>
+<!--log in as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create user-->
+<tr>
+	<td>open</td>
+	<td>/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-mail</td>
+	<td>${eid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass1</td>
+	<td>${ep}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-pass-pass2</td>
+	<td>${ep}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--add first name and last name-->
+<tr>
+	<td>open</td>
+	<td>/users/${user}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Edit profile)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-forename-und-0-value</td>
+	<td>${forename}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-field-surname-und-0-value</td>
+	<td>${surname}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--create site section-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name--2</td>
+	<td>${title1}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-description-format--4</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-description-value--2</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.messages.status:contains('Created new term ${title1}.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=.term</td>
+	<td>${title1}</td>
+</tr>
+<!--add user to site section-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.tabs.primary.clearfix li a:contains(Group)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>css=#edit-name</td>
+	<td>${user}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify added-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status ul li:contains('Mail sent to ${user})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status ul li:contains('${user} has been added to the group ${title1}')</td>
+	<td></td>
+</tr>
+<!--verify email has been sent-->
+<tr>
+	<td>open</td>
+	<td>https://www.google.co.uk</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

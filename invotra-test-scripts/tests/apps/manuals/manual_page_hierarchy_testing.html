@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://manuals.invotra.io1test.com/" />
+<title>manual_page_hierarchy_testing</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">manual_page_hierarchy_testing</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reference</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>titleMp2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>referenceMp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>referenceMp2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>groupChild</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://betademo:nottobeshared@www.preview.alphagov.co.uk/hmrc-internal-manuals'}</td>
+	<td>gov</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a manual-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<!--- save value of the slug field-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.machine-name-value:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.machine-name-value</td>
+	<td>slug</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${reference}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${reference})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-und-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-manual-internal-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Verify that the manual is published out-->
+<tr>
+	<td>open</td>
+	<td>${gov}/${slug}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#manual-title:contains(${slug})</td>
+	<td></td>
+</tr>
+<!--Create a manual page-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${referenceMp}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${referenceMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--Relate to the manual node-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Create a manual page 2-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual-page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${titleMp2}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-body-und-0-format--2</td>
+	<td>label=Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${referenceMp2}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${referenceMp2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<!--Relate to the manual node-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-manual-und-0-target-id</td>
+	<td>${title}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>//div[contains(text(), '${title}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleMp2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<!--Add manual pages to his parent-->
+<!--Add manual page2 to the subpages of manual page1 -->
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}/${referenceMp}/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-change-notes-und-0-value</td>
+	<td>${titleMp2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-group-und-0-value</td>
+	<td>${groupChild}</td>
+</tr>
+<!--Relate to the manual page 2to the subgroup of manual page-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp2}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp2}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//span[contains(text(), '${titleMp2}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>//span[contains(text(), '${titleMp2}')]</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Add manual page1 to subpages of manual  node-->
+<!--Manual 1-->
+<tr>
+	<td>open</td>
+	<td>/manual/${slug}/edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-group-und-0-value</td>
+	<td>${groupChild}</td>
+</tr>
+<!--Relate to the manual page 2to the subgroup of manual page-->
+<tr>
+	<td>setSpeed</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>id=edit-field-subpages-und-0-field-subpage-reference-und-0-target-id</td>
+	<td>${titleMp}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.reference-autocomplete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//span[contains(text(), '${titleMp}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//span[contains(text(), '${titleMp}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>setSpeed</td>
+	<td>0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Verify manul has manual page in the subpages group-->
+<!--Verify manual is a child of home-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb:contains(${title}):has(a:contains(Home))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.subpages-processed a:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.subpages-processed a:contains(${titleMp})</td>
+	<td></td>
+</tr>
+<!--Verify manul page1 has a manual page2 in the subpages group-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.subpages-processed a:contains(${titleMp2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.subpages-processed a:contains(${titleMp2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.subpages-processed a:contains(${titleMp2})</td>
+	<td></td>
+</tr>
+<!--Verify that the manual pages is related to manual in breadcrumbs-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb:contains(${titleMp}):has(a[href$=&quot;${slug}&quot;])</td>
+	<td></td>
+</tr>
+<!--Assert breadcrumb hierarchy-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb:contains(${titleMp2}):has(a:contains(${titleMp}))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb:contains(${titleMp2}):has(a[href$=&quot;${slug}&quot;])</td>
+	<td></td>
+</tr>
+<!--Assert live url-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.field-name-field-live-url a[href$='${slug}/${referenceMp2}']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.field-name-field-live-url a[href$='${slug}/${referenceMp2}']</td>
+	<td></td>
+</tr>
+<!--Assert breadcrumbs on alphagov-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb-trail:has(li:contains(${referenceMp2}))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb-trail:has(li:contains(${referenceMp}))</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.breadcrumb-trail a[href$=&quot;${slug}&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

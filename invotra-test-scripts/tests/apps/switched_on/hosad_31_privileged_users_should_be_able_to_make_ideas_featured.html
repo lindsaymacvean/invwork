@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://smallapps.invotra.io1test.com/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org'}</td>
+	<td>org</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'ideaadministrator'}</td>
+	<td>ideaadministrator</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'admin'}</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'b@dp@55w0rd'}</td>
+	<td>adminPass</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@org.com'}</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'collaboratively'+Math.random().toString(36).substring(2)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'Comment_body'+Math.random().toString(36).substring(2)}</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{Math.random().toString(36).substring(2)}</td>
+	<td>reason</td>
+</tr>
+<!-- - As authorized user open Switched on landing page -->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${org}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!-- - Fill required fields -->
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;submitted[__idea-title__]&quot;]</td>
+	<td>${title}</td>
+</tr>
+<!-- - Follow submit idea action -->
+<!-- - Submit form -->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.form-actions input[value=&quot;Submit&quot;]</td>
+	<td></td>
+</tr>
+<!-- - *Verify*: confirmation screen is presented -->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=#breadcrumb:contains('Done')</td>
+	<td></td>
+</tr>
+<!--Given I'm logged in us user with "Ideas administrator" user role-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${ideaadministrator}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Given I am on "Collaboratively cultivate" idea page-->
+<!--Given user has submitted an idea with "ideastagsnotification" title-->
+<tr>
+	<td>open</td>
+	<td>/idea/${title}</td>
+	<td></td>
+</tr>
+<!--When I click "Edit" button-->
+<tr>
+	<td>clickAtAndWait</td>
+	<td>css=.tabs a:contains('Edit')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains('Published')</td>
+	<td></td>
+</tr>
+<!--And click "Promotion"-->
+<tr>
+	<td>clickAt</td>
+	<td>css=.tabs-navlist a:contains('Promotion')</td>
+	<td></td>
+</tr>
+<!--And check "Featured item"-->
+<tr>
+	<td>click</td>
+	<td>css=label:contains('Featured item')</td>
+	<td></td>
+</tr>
+<!--And press "Save" button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[value=&quot;Save&quot;]</td>
+	<td></td>
+</tr>
+<!--When I am on "Ideas" landing page-->
+<tr>
+	<td>open</td>
+	<td>/section/switched</td>
+	<td></td>
+</tr>
+<!--Then I should see "Collaboratively cultivate" in the "View: Ideas: Featured ideas"-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.pane-ideas-featured-ideas-pane a:contains('${title}')</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

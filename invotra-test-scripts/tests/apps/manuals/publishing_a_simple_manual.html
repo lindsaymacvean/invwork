@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://manuals.invotra.io1test.com/" />
+<title>publishing_a_simple_manual</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">publishing_a_simple_manual</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{'webmaster'}</td>
+	<td>wm</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{'2014'}</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{Math.random().toString(36).substring(5)}</td>
+	<td>title</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{Math.random().toString(36).substring(5)}</td>
+	<td>reference</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'https://betademo:nottobeshared@www.preview.alphagov.co.uk/hmrc-internal-manuals'}</td>
+	<td>gov</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${wm}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create a manual-->
+<tr>
+	<td>open</td>
+	<td>/node/add/manual</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-title</td>
+	<td>${title}</td>
+</tr>
+<!--- save value of the slug field-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=.machine-name-value:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=.machine-name-value</td>
+	<td>slug</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-body-und-0-value</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-page-reference-und-0-human</td>
+	<td>${reference}</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit-field-page-reference .machine-name-value:contains(${reference})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-und-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-field-publish-this-manual-manual-internal-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Publishing options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=label:contains(Published)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#page-title:contains(${title})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=div .error</td>
+	<td></td>
+</tr>
+<!--Verify that the manual is published out-->
+<tr>
+	<td>open</td>
+	<td>${gov}/${slug}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=h1:contains(${title})</td>
+	<td></td>
+</tr>
+<!--A link to the published manual should be returned in the logs (under reports/Recent log messages in drupal)-->
+<!--Login as admin-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>b@dp@55w0rd</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/admin/reports/dblog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr.dblog-manual-publishing a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//td[contains(text(), '/hmrc-internal-manuals/${slug}')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

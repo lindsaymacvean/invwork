@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://chelsea.invotra.io1test.com" />
+<title>check_change_to_site_section_no_break_url</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">check_change_to_site_section_no_break_url</td></tr>
+</thead><tbody>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>id</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'2014'</td>
+	<td>pid</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'webmaster'</td>
+	<td>p</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>'site-sections'</td>
+	<td>TaxonomySection</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>title1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.random().toString(36).substring(2)</td>
+	<td>body</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>&quot;00000&quot; + Math.random().toString(36).substring(2)</td>
+	<td>title2</td>
+</tr>
+<!--Login as webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pid</td>
+	<td>${pid}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--create site section-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/${TaxonomySection}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name--2</td>
+	<td>${title1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-weight--2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-description-format--4</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-description-value--2</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--create site section 2-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=.add-term</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name--2</td>
+	<td>${title2}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-weight--2</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-description-format--4</td>
+	<td>Plain text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-description-value--2</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--access term using url in title-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-title</td>
+	<td>${title1}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<!--edit term title-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-name--2</td>
+	<td>${title1}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#edit-name--2</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify updated-->
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<!--verify you can access site section using old title in url-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>'Access denied'</td>
+	<td></td>
+</tr>
+<!--verify you can access site section using new title in url-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>'Access denied'</td>
+	<td></td>
+</tr>
+<!--add parent section-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>css=#edit-name--2</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#edit-field-parent-terms-und-0-tid--2-select-1</td>
+	<td>${title2}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<!--verify update-->
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.breadcrumb a:contains(${title2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.breadcrumb:contains(${title1}update)</td>
+	<td></td>
+</tr>
+<!--verify you can access site section using old urls-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>'Access denied'</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/${title1}update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>'Access denied'</td>
+	<td></td>
+</tr>
+<!--verify you can access site section using new URL-->
+<tr>
+	<td>open</td>
+	<td>/section/${title2}/${title1}update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=.pane-content p</td>
+	<td>${body}</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>'Access denied'</td>
+	<td></td>
+</tr>
+<!--delete site sections-->
+<tr>
+	<td>open</td>
+	<td>/section/${title1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title1}update</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.delete-taxonomy-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#taxonomy-term-confirm-delete div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${title1}update)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Deleted term ${title1}update.')</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/section/${title2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#page-title</td>
+	<td>${title2}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#tabs-show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.delete-taxonomy-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#taxonomy-term-confirm-delete div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#page-title:contains(${title2})</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=.messages.status:contains('Deleted term ${title2}.')</td>
+	<td></td>
+</tr>
+<!--verify deleted-->
+<tr>
+	<td>open</td>
+	<td>/invotra/settings/configuration/site-sections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>${title1}update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>${title2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>${title1}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

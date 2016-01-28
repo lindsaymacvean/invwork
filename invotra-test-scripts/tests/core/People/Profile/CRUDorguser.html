@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://lindsay.invotra.io1test.com/user" />
+<title>Profile_Corporate</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Profile_Corporate</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'webmaster'}</td>
+	<td>webmaster_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user'}</td>
+	<td>org_user_id</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org user'}</td>
+	<td>org_user_p</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{'org@example.com'}</td>
+	<td>org_user_email</td>
+</tr>
+<!--Log In As Webmaster-->
+<tr>
+	<td>open</td>
+	<td>/user/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${webmaster_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass</td>
+	<td>${webmaster_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Create User -->
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Add person')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-status-1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-3</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-6</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-7</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-9</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-11</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-12</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-13</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-15</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-name</td>
+	<td>${org_user_id}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>${org_user_email}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass1</td>
+	<td>${org_user_p}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-pass-pass2</td>
+	<td>${org_user_p}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify User Created-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.messages.status</td>
+	<td>Status message Created a new user account for org user. No e-mail has been sent.</td>
+</tr>
+<!--Navigate to edit profile page-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/invotra/people</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=org user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit profile')])[2]</td>
+	<td></td>
+</tr>
+<!--Edit Corporate-->
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-status-1</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-3</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-4</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-5</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-6</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-7</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-8</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-9</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-11</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-12</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-13</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=edit-roles-change-15</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-forename-und-0-value</td>
+	<td>Joe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-surname-und-0-value</td>
+	<td>Bloggs</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-middle-name-und-0-value</td>
+	<td>Gordon</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-locations-und-0-target-id-select-1</td>
+	<td>label=Burgenland</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-job-role-und-0-target-id-select-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=edit-field-about-me-und-0-format--2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-interests-und</td>
+	<td>golf</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-phone-no-und-0-value</td>
+	<td>1234567</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-phone-mobile-und-0-value</td>
+	<td>7654321</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-manager-und-0-target-id</td>
+	<td>webmaster</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-pid-und-0-value</td>
+	<td>id test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-known-as-und-0-value</td>
+	<td>J</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-job-title-temp-und-0-value</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Targeting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-field-organisational-unit-und-0-target-id-select-1</td>
+	<td>label=Finance</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<!--Verify Corporate Field-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>class=messages status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>The changes have been saved.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Profile')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=p</td>
+	<td>Joe Bloggs</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=b</td>
+	<td>Known as:</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.field-item.even</td>
+	<td>Test User</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Finance</td>
+	<td>Finance</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=org@example.com</td>
+	<td>org@example.com</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='mini-panel-user_profile_phones']/div/div/div/div/div/div</td>
+	<td>1234567</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='mini-panel-user_profile_phones']/div/div[3]/div/div/div/div</td>
+	<td>7654321</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Burgenland</td>
+	<td>Burgenland</td>
+</tr>
+<!--Delete User-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=User search and do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=edit-views-bulk-operations-0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=edit-operation</td>
+	<td>label=Delete user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit--2</td>
+	<td>Do</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#edit-actions &gt; #edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=em.placeholder</td>
+	<td>Delete item</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=org user</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Loop through all the tests in a suite and replace the base url with profile.invotra
+# Example usage: 
+# i.e.  ./cleanup.sh directory subdomain
+# e.g.  ./cleanup.sh tests lindsay
+
+
+
+# first grab the suite.html file
+suite="$1/suite.html"
+# next loop through and get a list of tests
+tests=$(grep -Po '(?<=href=")[^"]*' < $suite)
+
+# loop through and for tests in suite replace subdomain
+for test in $tests; do
+    sed -ri "s/^.*selenium\.base.*$/<link rel=\"selenium.base\" href=\"http:\/\/$2.invotra.io1test.com\" \/>/" $1/$test
+done
